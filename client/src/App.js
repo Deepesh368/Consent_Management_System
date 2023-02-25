@@ -18,7 +18,7 @@ const App = () => {
                     <Route
                         path="/patient"
                         element={
-                            !user ? (
+                            user ? (
                                 <Navigate to={'/patient/auth'} />
                             ) : (
                                 <PatientDashbord />

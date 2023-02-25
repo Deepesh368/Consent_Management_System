@@ -1,10 +1,12 @@
+import { Container } from '@material-ui/core';
 import React from 'react';
+import DrawerAppBar from '../material_ui_components/AppBar.js'
 
 const Home = () => {
     return (
-        <div>
-            <h1>This is Home page of the application</h1>
-        </div>
+        <Container>
+            <DrawerAppBar />
+        </Container>
     );
 };
 
