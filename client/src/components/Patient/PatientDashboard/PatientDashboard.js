@@ -1,12 +1,12 @@
 import { Container, Typography } from '@mui/material';
 import React from 'react';
 import TextField from './TextField';
-import Search from './searchBar';
+// import Search from './searchBar';
 
 
-var image = './client/src/components/Patient/PatientDashboard/photo.jpeg'
+// var image = './client/src/components/Patient/PatientDashboard/photo.jpeg'
 
-var messages = []
+// var messages = []
 const PatientDashbooard = () => {
     return (
         <Container style={{background:'#F0F3F4'}}>

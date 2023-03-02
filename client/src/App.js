@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './components/Home/Home';
 import PatientAuth from './components/Patient/PatientAuth/PatientAuth';
 import PatientDashbord from './components/Patient/PatientDashboard/PatientDashboard';
+import MyForm from './components/Doctor/ConsentForm';
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem('profile'));
@@ -15,6 +16,7 @@ const App = () => {
             <Container maxWidth="xl">
                 <Routes>
                     <Route path="/" exact element={<Home />} />
+                    <Route path="/doctor/create_consent" exact element={<MyForm />} />
                     <Route
                         path="/patient"
                         element={
