@@ -3,7 +3,6 @@ import { PATIENT_AUTH, PATIENT_LOGOUT } from '../constants/actionTypes';
 
 export const patientlogin = (formData, history) => async (dispatch) => {
     try {
-        console.log(formData);
         const { data } = await api.patientLogIn(formData);
         dispatch({ type: PATIENT_AUTH, data });
         history.push('/patient');

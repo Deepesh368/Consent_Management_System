@@ -11,8 +11,11 @@ API.interceptors.request.use((req) => {
     return req;
 });
 
+//Patient Specific
 export const patientLogIn = (formData) => API.post('/patient/login', formData);
-export const patientLogOut = (formData) =>
-    API.post('/patient/logout', formData);
+export const viewConsents = (patient_id) =>
+    API.get(`/consent/get/patient?patient_id=${patient_id}`);
 
-// export const signUp = (formData) => API.post('/patient/register', formData);
+//Doctor Specific
+export const createConsent = (doctor_id, formData) =>
+    API.post(`/consent/doctor/create?doctor_id=${doctor_id}`, formData);
