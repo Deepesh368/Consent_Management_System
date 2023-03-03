@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import viewconsents from '../../../actions/patient';
+import { viewconsents } from '../../../actions/patient';
 
 const GetConsent = () => {
     const dispatch = useDispatch();
