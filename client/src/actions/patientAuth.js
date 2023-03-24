@@ -11,12 +11,12 @@ export const patientlogin = (formData, history) => async (dispatch) => {
     }
 };
 
-export const patientlogout = (formData, history) => async (dispatch) => {
-    try {
-        const { data } = await api.patientLogOut(formData);
-        dispatch({ type: PATIENT_LOGOUT, data });
-        history.push('/');
-    } catch (error) {
-        console.log(error);
-    }
-};
+// export const patientlogout = (formData, history) => async (dispatch) => {
+//     try {
+//         const { data } = await api.patientLogOut(formData);
+//         dispatch({ type: PATIENT_LOGOUT, data });
+//         history.push('/');
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };

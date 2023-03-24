@@ -1,5 +1,9 @@
 import * as api from '../api';
-import { START_LOADING, VIEW_CONSENTS } from '../constants/actionTypes';
+import {
+    START_LOADING,
+    VIEW_CONSENTS,
+    END_LOADING,
+} from '../constants/actionTypes';
 
 export const viewconsents = (patient_id) => async (dispatch) => {
     try {
