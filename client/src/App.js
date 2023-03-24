@@ -8,6 +8,8 @@ import PatientAuth from './components/Patient/PatientAuth/PatientAuth';
 import PatientDashbord from './components/Patient/PatientDashboard/PatientDashboard';
 import Doctor from './components/Doctor/Doctor';
 import GetConsent from './components/Patient/GetConsent/GetConsent';
+=======
+import MyForm from './components/Doctor/ConsentForm';
 
 const App = () => {
     // const user = JSON.parse(localStorage.getItem('profile'));
