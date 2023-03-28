@@ -9,7 +9,7 @@ const Header = () => {
     let name = window.location.href.split("/")[3]
     return(
         <React.Fragment>
-            <AppBar sx={{background: "#10BB40", minHeight: '78px'}}>
+            <AppBar sx={{background: "#10BB40", minHeight: '15%'}}>
                 <Toolbar>
                     <Button disableElevation='true' sx={{"&:hover": {backgroundColor: "#10EB40"}, margin:'0px 2px 0 -25px', background:"#10BB40"}} variant="contained"><ArrowBackIcon /> </Button>
                     <MedicalServicesIcon />

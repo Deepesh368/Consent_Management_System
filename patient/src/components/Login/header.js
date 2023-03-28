@@ -6,7 +6,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const Header = () => {
     return(
         <React.Fragment>
-            <AppBar sx={{background: "#10BB40", minHeight: '70px'}}>
+            <AppBar sx={{background: "#10BB40", minHeight: '100px'}}>
                 <Toolbar>
                     <Button disableElevation='true' sx={{"&:hover": {backgroundColor: "#10EB40"}, margin:'5px', background:"#10BB40"}} variant="contained"><ArrowBackIcon /> </Button>
                     < MedicalServicesIcon />
