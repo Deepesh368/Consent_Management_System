@@ -7,10 +7,6 @@
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
         "@material-ui/core": "^4.12.4",
-<<<<<<< HEAD
-        "@material-ui/icons": "^4.11.3",
-=======
->>>>>>> ad0b21f03826f00efdee0bf581abe091c803dc38
         "@mui/icons-material": "^5.11.11",
         "@mui/material": "^5.11.14",
         "@mui/material-next": "^6.0.0-alpha.79",
