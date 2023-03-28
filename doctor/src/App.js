@@ -12,7 +12,7 @@ const App = () => {
         <BrowserRouter>
             <Container maxWidth="xl">
                 <Routes>
-                    <Route path="/" exact element={<Home />} />
+                    <Route path="/" element={<Home />} />
                 </Routes>
             </Container>
         </BrowserRouter>
