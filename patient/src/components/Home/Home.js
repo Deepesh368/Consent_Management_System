@@ -5,9 +5,12 @@ import Navbar from './Navbar';
 const Home = () => {
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             <Toolbar />
-            <h1>This is the place where website information and goals will be displayed</h1>
+            <h1>
+                This is the place where website information and goals will be
+                displayed
+            </h1>
         </div>
     );
 };
