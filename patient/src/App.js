@@ -1,12 +1,13 @@
 import React from 'react';
 import { Container } from '@material-ui/core';
 
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './components/Home/Home';
-import Login from './components/Login/login.js'
-import PatientDashBoard from './components/PatientDashboard/patientDashboard.js';
-import Profile from './components/PatientProfile/profile.js'
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
+import DashBoard from './components/Dashboard/Dashboard';
+import Profile from './components/Profile/Profile';
 const App = () => {
     const user = JSON.parse(localStorage.getItem('profile'));
 
@@ -14,16 +15,11 @@ const App = () => {
         <BrowserRouter>
             <Container maxWidth="xl">
                 <Routes>
-                    <Route path="/maruthi" exact element={<PatientDashBoard />} />
-                </Routes>
-                <Routes>
-                    <Route path="/maruthi/profile" exact element={<Profile />} />
-                </Routes>
-                <Routes>
-                    <Route path="/" exact element={<Home />} />
-                </Routes>
-                <Routes>
-                    <Route path="/Login" exact element={<Login />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/login" exact element={<Login />} />
+                    <Route path="/maruthi" element={<DashBoard />} />
+                    <Route path="/maruthi/profile" element={<Profile />} />
                 </Routes>
             </Container>
         </BrowserRouter>
