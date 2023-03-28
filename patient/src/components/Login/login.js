@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid,Paper, TextField, Button,Link, Typography } from '@material-ui/core'
+import { Grid,Paper, TextField, Button,Link } from '@material-ui/core'
 // import './navBar/styles.css'
 import Header from './header.js'
 
