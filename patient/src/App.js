@@ -8,6 +8,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import DashBoard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
+import ConsentDashBoard from './components/DashboardConsent/consentDashBoard';
 const App = () => {
     const user = JSON.parse(localStorage.getItem('profile'));
 
@@ -16,6 +17,7 @@ const App = () => {
             <Container maxWidth="xl">
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/maruthi/consent" element={<ConsentDashBoard />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/maruthi" element={<DashBoard />} />
