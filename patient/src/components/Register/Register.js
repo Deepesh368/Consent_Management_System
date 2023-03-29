@@ -13,7 +13,7 @@ import Header from './Header.js';
 const Patientregister = () => {
     const paperStyle = {
         padding: 20,
-        height: '40vh',
+        height: '40%',
         width: 350,
         margin: '20px auto',
         backgroundColor: '#20CD51',
