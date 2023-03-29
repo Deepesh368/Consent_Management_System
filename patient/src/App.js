@@ -8,7 +8,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import DashBoard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
-import ConsentDashBoard from './components/Dashboard Consent/consentDashBoard';
+import ConsentDashBoard from './components/DashboardConsent/consentDashBoard';
 const App = () => {
     const user = JSON.parse(localStorage.getItem('profile'));
 
