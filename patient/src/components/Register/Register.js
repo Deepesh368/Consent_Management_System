@@ -27,7 +27,7 @@ const Patientregister = () => {
     return (
         <div>
             <Header />
-            <Grid style={{ margin: '120px 0 20px  0' }}>
+            <Grid style={{ margin: '10% 0 5% 0' }}>
                 <Paper elevation={10} style={paperStyle}>
                     <Grid align="center">
                         <h2 style={{ color: 'white', fontWeight: 'bold' }}>
