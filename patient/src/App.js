@@ -17,11 +17,14 @@ const App = () => {
             <Container maxWidth="xl">
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/maruthi/consent" element={<ConsentDashBoard />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/maruthi" element={<DashBoard />} />
                     <Route path="/maruthi/profile" element={<Profile />} />
+                    <Route
+                        path="/maruthi/consent"
+                        element={<ConsentDashBoard />}
+                    />
                 </Routes>
             </Container>
         </BrowserRouter>
