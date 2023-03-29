@@ -5,24 +5,15 @@ import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import { Box } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 
 const Header = () => {
     let navigate = useNavigate();
-
-    const registerPath = () => {
-        navigate('/register');
-    };
-
-    const loginPath = () => {
-        navigate('/login');
-    };
 
     return (
         <>
             <AppBar sx={{ background: '#10BB40', minHeight: '70px' }}>
                 <Toolbar>
-                <Button
+                    <Button
                         disableElevation="true"
                         sx={{
                             '&:hover': { backgroundColor: '#10EB40' },
@@ -32,14 +23,14 @@ const Header = () => {
                         variant="contained"
                         onClick={() => navigate(-1)}
                     >
-                    <ArrowBackIcon />{' '}
-                </Button>
+                        <ArrowBackIcon />{' '}
+                    </Button>
                     <Button
                         // color="primary"
                         sx={{ color: 'white' }}
                         size="large"
                         startIcon={<MedicalServicesIcon />}
-                        onClick={() => navigate("/")}
+                        onClick={() => navigate('/')}
                     >
                         Swastha Suraksha
                     </Button>
@@ -51,9 +42,9 @@ const Header = () => {
                         alignItems="flex-end"
                         sx={{ flexGrow: 1 }}
                     >
-                     <h2 style={{ width: '20%', marginLeft: 'auto' }}>
-                         Patient Registration
-                     </h2> 
+                        <h2 style={{ width: '20%', marginLeft: 'auto' }}>
+                            Patient Registration
+                        </h2>
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -62,4 +53,3 @@ const Header = () => {
 };
 
 export default Header;
-

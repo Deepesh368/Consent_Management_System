@@ -2,13 +2,14 @@ import React from 'react';
 import { Grid, Paper, TextField, Button, Link } from '@material-ui/core';
 // import './navBar/styles.css'
 import Header from './Header.js';
+import { Box } from '@mui/material';
 
 const Login = () => {
     const paperStyle = {
-        padding: 20,
-        height: '40vh',
-        width: 350,
-        margin: '20px auto',
+        padding: 40,
+        height: '45%',
+        width: 400,
+        margin: '50px auto',
         backgroundColor: '#20CD51',
     };
     const btnstyle = {
@@ -20,7 +21,7 @@ const Login = () => {
     return (
         <div>
             <Header />
-            <Grid style={{ margin: '120px 0 20px  0' }}>
+            <Grid style={{ margin: '200px 0 50px  0' }}>
                 <Paper elevation={10} style={paperStyle}>
                     <Grid align="center">
                         <h2 style={{ color: 'white', fontWeight: 'bold' }}>
@@ -46,13 +47,14 @@ const Login = () => {
                             borderRadius: 50,
                             margin: '4px',
                             height: '40px',
+                            marginBottom: '30px',
                         }}
                         placeholder="   Enter password"
                         type="password"
                         fullWidth
                         required
                     />
-                    {/* <Typography > */}
+
                     <Link
                         href="#"
                         style={{
@@ -63,8 +65,6 @@ const Login = () => {
                     >
                         Forgot password ?
                     </Link>
-                    {/* </Typography> */}
-                    {/* <Typography >  */}
                     <Link
                         href="#"
                         style={{
@@ -75,7 +75,6 @@ const Login = () => {
                     >
                         Sign Up
                     </Link>
-                    {/* </Typography> */}
                 </Paper>
             </Grid>
             <Button
