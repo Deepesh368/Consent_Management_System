@@ -2,13 +2,15 @@ import React from 'react';
 import { Grid, Paper, TextField, Button, Link } from '@material-ui/core';
 // import './navBar/styles.css'
 import Header from './Header.js';
+import { Box } from '@mui/material';
 
 const Login = () => {
+let hospitalname = "Hospital name"
     const paperStyle = {
-        padding: 20,
-        height: '40vh',
-        width: 350,
-        margin: '20px auto',
+        padding: 40,
+        height: '45%',
+        width: 400,
+        margin: '50px auto',
         backgroundColor: '#20CD51',
     };
     const btnstyle = {
@@ -20,10 +22,22 @@ const Login = () => {
     return (
         <div>
             <Header />
+<<<<<<< HEAD
             <Grid style={{ margin: '120px 0 20px  0' }}>
                 <Paper elevation={10} style={paperStyle}>
                     <Grid align="center">
                         <h2 style={{ color: 'white', fontWeight: 'bold' }}>
+=======
+            <Grid style={{ margin: '200px 0 50px  0' }}>
+                <Paper elevation={10} style={paperStyle}>
+                    <Grid align="center">
+                        <h2 style={{ color: 'white', fontWeight: 'bold' }}>
+                            {hospitalname}
+                        </h2>
+                    </Grid>
+                    <Grid align="center">
+                        <h2 style={{ color: 'white', fontWeight: 'bold' }}>
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                             Log In
                         </h2>
                     </Grid>
@@ -46,13 +60,21 @@ const Login = () => {
                             borderRadius: 50,
                             margin: '4px',
                             height: '40px',
+<<<<<<< HEAD
+=======
+                            marginBottom: '30px',
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                         }}
                         placeholder="   Enter password"
                         type="password"
                         fullWidth
                         required
                     />
+<<<<<<< HEAD
                     {/* <Typography > */}
+=======
+
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                     <Link
                         href="#"
                         style={{
@@ -63,8 +85,11 @@ const Login = () => {
                     >
                         Forgot password ?
                     </Link>
+<<<<<<< HEAD
                     {/* </Typography> */}
                     {/* <Typography >  */}
+=======
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                     <Link
                         href="#"
                         style={{
@@ -75,7 +100,10 @@ const Login = () => {
                     >
                         Sign Up
                     </Link>
+<<<<<<< HEAD
                     {/* </Typography> */}
+=======
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                 </Paper>
             </Grid>
             <Button

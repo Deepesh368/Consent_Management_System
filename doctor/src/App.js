@@ -4,6 +4,7 @@ import { Container } from '@material-ui/core';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './components/Home/Home';
+import Login from './components/Login/Login';
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem('profile'));
@@ -13,6 +14,7 @@ const App = () => {
             <Container maxWidth="xl">
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/login" exact element={<Login />} />
                 </Routes>
             </Container>
         </BrowserRouter>

@@ -19,24 +19,32 @@ const PatientDashBoard = () => {
         <div>
             <Header />
             <Toolbar />
-            <Grid style={{ margin: '120px 0 20px  0' }}>
-                <h1
-                    style={{
-                        textAlign: 'center',
-                        marginLeft: '350px',
-                        background: '#20CD51',
-                        color: 'white',
-                        width: '800px',
-                        height: '100px',
-                        borderRadius: '40px',
-                        fontStyle: 'italic',
-                    }}
+            <div style={{}}>
+                <Grid
+                    style={{ margin: '120px 0 20px  0' }}
+                    alignContent="center"
                 >
-                    Welcome, {window.location.href.split('/')[3]}!
-                </h1>
-                <Button style={btnstyle}>View data Requests</Button>
-                <Button style={btnstyle}>View Hospital Records</Button>
-            </Grid>
+                    <h1
+                        style={{
+                            textAlign: 'center',
+                            marginLeft: '24%',
+                            alignItems: 'center',
+                            alignContent: 'center',
+                            background: '#20CD51',
+                            color: 'white',
+                            width: '800px',
+                            height: '100px',
+                            borderRadius: '40px',
+                            fontStyle: 'italic',
+                        }}
+                    >
+                        Welcome, {window.location.href.split('/')[3]}!
+                    </h1>
+
+                    <Button style={btnstyle}>View data Requests</Button>
+                    <Button style={btnstyle}>View Hospital Records</Button>
+                </Grid>
+            </div>
         </div>
     );
 };
