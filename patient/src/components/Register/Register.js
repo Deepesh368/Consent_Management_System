@@ -37,7 +37,13 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(signup(formData, navigate));
+        const { name, email, password, confirmPassword, phone} = formData;
+        if (password !== confirmPassword) {
+            alert("Passwords don't match");
+        } else {
+            // make API call
+            dispatch(signup(formData, navigate));
+        }
     };
 
     const paperStyle = {
