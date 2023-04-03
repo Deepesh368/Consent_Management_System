@@ -3,6 +3,10 @@ import { useDispatch } from 'react-redux';
 import { signup } from '../../actions/auth.js';
 import { useNavigate } from 'react-router-dom';
 import './styles.css'
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { InputAdornment } from '@mui/material';
+
 import {
     Grid,
     Paper,
@@ -10,6 +14,8 @@ import {
     Button,
     Link,
     Typography,
+    IconButton,
+
 } from '@material-ui/core';
 // import './navBar/styles.css'
 import Header from './Header.js';
@@ -23,13 +29,19 @@ const initialState = {
 };
 
 const Register = () => {
+
     const [formData, setFormData] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setConfirmShowPassword] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleShowPassword = () =>
         setShowPassword((prevShowPassword) => !prevShowPassword);
+    
+        const handleConfirmShowPassword = () =>
+        setConfirmShowPassword((prevConfirmShowPassword) => !prevConfirmShowPassword);
+
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -69,7 +81,7 @@ const Register = () => {
                 <Grid style={{ margin: '10% 0 5% 0' }}>
                     <Paper elevation={10} style={paperStyle}>
                         <Grid align="center">
-                            <h2 style={{ color: 'white', fontWeight: 'bold' }}>
+                            <h2 style={{ color: 'white', fontWeight: 'bold',}}>
                                 Register
                             </h2>
                         </Grid>
@@ -130,7 +142,11 @@ const Register = () => {
                             onChange={handleChange}
                         />
                         <TextField
-                            InputProps={{ disableUnderline: true }}
+                            InputProps={{endAdornment: <InputAdornment position="end">
+                            <IconButton>
+                                {!showPassword?<VisibilityIcon onClick={handleShowPassword}/>:<VisibilityOffIcon onClick={handleShowPassword}/>}
+                            </IconButton>
+                            </InputAdornment>, disableUnderline: true }}
                             style={{
                                 background: 'white',
                                 borderRadius: 50,
@@ -139,13 +155,17 @@ const Register = () => {
                             }}
                             label="   Password"
                             name="password"
-                            type="password"
+                            type={showPassword?"text":"password"}
                             fullWidth
                             required
                             onChange={handleChange}
                         />
                         <TextField
-                            InputProps={{ disableUnderline: true }}
+                            InputProps={{endAdornment: <InputAdornment position="end">
+                            <IconButton>
+                                {!showConfirmPassword?<VisibilityIcon onClick={handleConfirmShowPassword}/>:<VisibilityOffIcon onClick={handleConfirmShowPassword}/>}
+                            </IconButton>
+                            </InputAdornment>, disableUnderline: true }}
                             style={{
                                 background: 'white',
                                 borderRadius: 50,
@@ -154,7 +174,7 @@ const Register = () => {
                             }}
                             label="   Confirm Password"
                             name="confirmPassword"
-                            type="password"
+                            type={showConfirmPassword?"text":"password"}
                             fullWidth
                             required
                             onChange={handleChange}
