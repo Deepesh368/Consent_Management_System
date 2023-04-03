@@ -22,6 +22,12 @@ let hospitalname = "Hospital name"
     return (
         <div>
             <Header />
+<<<<<<< HEAD
+            <Grid style={{ margin: '120px 0 20px  0' }}>
+                <Paper elevation={10} style={paperStyle}>
+                    <Grid align="center">
+                        <h2 style={{ color: 'white', fontWeight: 'bold' }}>
+=======
             <Grid style={{ margin: '200px 0 50px  0' }}>
                 <Paper elevation={10} style={paperStyle}>
                     <Grid align="center">
@@ -31,6 +37,7 @@ let hospitalname = "Hospital name"
                     </Grid>
                     <Grid align="center">
                         <h2 style={{ color: 'white', fontWeight: 'bold' }}>
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                             Log In
                         </h2>
                     </Grid>
@@ -53,14 +60,21 @@ let hospitalname = "Hospital name"
                             borderRadius: 50,
                             margin: '4px',
                             height: '40px',
+<<<<<<< HEAD
+=======
                             marginBottom: '30px',
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                         }}
                         placeholder="   Enter password"
                         type="password"
                         fullWidth
                         required
                     />
+<<<<<<< HEAD
+                    {/* <Typography > */}
+=======
 
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                     <Link
                         href="#"
                         style={{
@@ -71,6 +85,11 @@ let hospitalname = "Hospital name"
                     >
                         Forgot password ?
                     </Link>
+<<<<<<< HEAD
+                    {/* </Typography> */}
+                    {/* <Typography >  */}
+=======
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                     <Link
                         href="#"
                         style={{
@@ -81,6 +100,10 @@ let hospitalname = "Hospital name"
                     >
                         Sign Up
                     </Link>
+<<<<<<< HEAD
+                    {/* </Typography> */}
+=======
+>>>>>>> b37408b54ab4c29d2ae39de012d3dc439cf02d60
                 </Paper>
             </Grid>
             <Button
