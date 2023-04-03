@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from '../../actions/auth.js';
 import { useNavigate } from 'react-router-dom';
-
+import './styles.css'
 import {
     Grid,
     Paper,
@@ -40,7 +40,10 @@ const Register = () => {
         const { name, email, password, confirmPassword, phone} = formData;
         if (password !== confirmPassword) {
             alert("Passwords don't match");
-        } else {
+        }else if(phone.length!==10){
+            alert("Phone number should be 10 digits")
+        } 
+        else {
             // make API call
             dispatch(signup(formData, navigate));
         }
@@ -79,7 +82,7 @@ const Register = () => {
                                 height: '40px',
                             }}
                             name="name"
-                            label="   Name"
+                            label="Name"
                             fullWidth
                             required
                             onChange={handleChange}
@@ -94,6 +97,7 @@ const Register = () => {
                             }}
                             name="phone"
                             label="   Phone Number"
+                            type='number'
                             fullWidth
                             required
                             onChange={handleChange}
