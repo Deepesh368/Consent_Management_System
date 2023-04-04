@@ -19,19 +19,17 @@ const App = () => {
                     <Route path="/" exact element={<Home />} />
 
                     <Route
-                        path="/register/"
+                        path="/register"
                         exact
                         element={
-                            !user ? <Register /> : <Navigate to="/patient/" />
+                            !user ? <Register /> : <Navigate to="/patient" />
                         }
                     />
 
                     <Route
-                        path="/login/"
+                        path="/login"
                         exact
-                        element={
-                            !user ? <Login /> : <Navigate to="/patient/" />
-                        }
+                        element={!user ? <Login /> : <Navigate to="/patient" />}
                     />
 
                     <Route path="/patient/profile" element={<Profile />} />
