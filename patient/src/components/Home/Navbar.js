@@ -5,6 +5,7 @@ import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import { useNavigate } from 'react-router-dom';
 import { Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import './styles.css'
 
 const Navbar = () => {
     let navigate = useNavigate();
@@ -38,40 +39,57 @@ const Navbar = () => {
                         alignItems="flex-end"
                         sx={{ flexGrow: 1 }}
                     >
-                        <Button
-                            variant="contained"
-                            onClick={loginPath}
-                            sx={{
-                                marginRight: '10px',
-                                borderRadius: 50,
-                                color: 'black',
-                                background: '#DDEEE2',
-                                '&:hover': {
-                                    border: '1px solid black',
+                        <div className='dropdown'>
+                            <Button
+                                className='dropbtn'
+                                variant="contained"
+                                onClick={loginPath}
+                                sx={{
+                                    marginRight: '10px',
+                                    borderRadius: 50,
                                     color: 'black',
-                                    backgroundColor: '#DDEEE2',
-                                },
-                            }}
-                        >
-                            Log In
-                        </Button>
+                                    background: '#DDEEE2',
+                                    '&:hover': {
+                                        border: '1px solid black',
+                                        color: 'black',
+                                        backgroundColor: '#DDEEE2',
+                                    },
+                                }}
+                            >
+                                Log In
+                            </Button>
+                            <div class="dropdown-content">
+                                <a href="www.google.com">Link 1</a>
+                                <a href="www.google.com">Link 2</a>
 
-                        <Button
-                            variant="contained"
-                            onClick={registerPath}
-                            sx={{
-                                borderRadius: 50,
-                                color: 'black',
-                                background: '#DDEEE2',
-                                '&:hover': {
-                                    border: '1px solid black',
+                            </div>
+                        </div>
+
+                        <div className='dropdown'>
+                            <Button
+                                className='dropbtn'
+                                variant="contained"
+                                onClick={loginPath}
+                                sx={{
+                                    marginRight: '10px',
+                                    borderRadius: 50,
                                     color: 'black',
-                                    backgroundColor: '#DDEEE2',
-                                },
-                            }}
-                        >
-                            Register
-                        </Button>
+                                    background: '#DDEEE2',
+                                    '&:hover': {
+                                        border: '1px solid black',
+                                        color: 'black',
+                                        backgroundColor: '#DDEEE2',
+                                    },
+                                }}
+                            >
+                                Register
+                            </Button>
+                            <div class="dropdown-content">
+                                <a href="www.google.com">Link 1</a>
+                                <a href="www.google.com">Link 2</a>
+
+                            </div>
+                        </div>
                     </Box>
                 </Toolbar>
             </AppBar>

@@ -43,7 +43,7 @@ const App = () => {
                     <Route
                         path="/patient/consent"
                         element={
-                            !user ? (
+                            user ? (
                                 <Navigate to="/login" />
                             ) : (
                                 <ConsentDashBoard />
