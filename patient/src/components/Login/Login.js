@@ -3,10 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { Grid, Paper, TextField, Button, Link } from '@material-ui/core';
-// import './navBar/styles.css'
 import Header from './Header.js';
 import { login } from '../../actions/auth.js';
-// import { Box } from '@mui/material';
 
 const initialState = {
     email: '',
