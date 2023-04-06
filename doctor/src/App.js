@@ -13,8 +13,13 @@ const App = () => {
         <BrowserRouter>
             <Container maxWidth="xl">
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" exact element={<Login />} />
+                    <Route path="/" exact element={<Navigate to="/login" />} />
+
+                    <Route
+                        path="/login"
+                        exact
+                        element={!user ? <Login /> : <Navigate to="/doctor" />}
+                    />
                 </Routes>
             </Container>
         </BrowserRouter>

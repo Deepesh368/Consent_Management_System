@@ -5,7 +5,7 @@ import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import { useNavigate } from 'react-router-dom';
 import { Box } from '@material-ui/core';
 import { Link } from 'react-router-dom';
-import './styles.css'
+import './styles.css';
 
 const Navbar = () => {
     let navigate = useNavigate();
@@ -39,9 +39,9 @@ const Navbar = () => {
                         alignItems="flex-end"
                         sx={{ flexGrow: 1 }}
                     >
-                        <div className='dropdown'>
+                        <div className="dropdown">
                             <Button
-                                className='dropbtn'
+                                className="dropbtn"
                                 variant="contained"
                                 onClick={loginPath}
                                 sx={{
@@ -59,14 +59,13 @@ const Navbar = () => {
                             </Button>
                             <div class="dropdown-content">
                                 <a href="/login">Patient</a>
-                                <a href="www.google.com">Doctor</a>
-
+                                <a href="http://localhost:3002/login">Doctor</a>
                             </div>
                         </div>
 
-                        <div className='dropdown'>
+                        <div className="dropdown">
                             <Button
-                                className='dropbtn'
+                                className="dropbtn"
                                 variant="contained"
                                 onClick={loginPath}
                                 sx={{
@@ -84,8 +83,6 @@ const Navbar = () => {
                             </Button>
                             <div class="dropdown-content">
                                 <a href="/register">Patient</a>
-                                <a href="www.google.com">Doctor</a>
-
                             </div>
                         </div>
                     </Box>
