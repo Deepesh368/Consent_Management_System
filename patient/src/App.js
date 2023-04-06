@@ -18,9 +18,8 @@ const App = () => {
         <BrowserRouter>
             <Container maxWidth="xl">
                 <Routes>
-                
                     <Route path="/" exact element={<Home />} />
-                    <Route path="/patient/records" exact element={<HealthRecords />} />
+
                     <Route
                         path="/register"
                         exact
@@ -39,14 +38,14 @@ const App = () => {
                         path="/patient"
                         exact
                         element={
-                            user ? <Navigate to="/login" /> : <DashBoard />
+                            !user ? <Navigate to="/login" /> : <DashBoard />
                         }
                     />
 
                     <Route
                         path="/patient/consent"
                         element={
-                            user ? (
+                            !user ? (
                                 <Navigate to="/login" />
                             ) : (
                                 <ConsentDashBoard />
@@ -60,6 +59,13 @@ const App = () => {
                         element={!user ? <Navigate to="/login" /> : <Profile />}
                     />
 
+                    <Route
+                        path="/patient/records"
+                        exact
+                        element={
+                            !user ? <Navigate to="/login" /> : <HealthRecords />
+                        }
+                    />
                 </Routes>
             </Container>
         </BrowserRouter>
