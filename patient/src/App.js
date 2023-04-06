@@ -32,10 +32,29 @@ const App = () => {
                         element={!user ? <Login /> : <Navigate to="/patient" />}
                     />
 
-                    <Route path="/patient/profile" element={<Profile />} />
+                    <Route
+                        path="/patient"
+                        exact
+                        element={
+                            !user ? <Navigate to="/login" /> : <DashBoard />
+                        }
+                    />
+
                     <Route
                         path="/patient/consent"
-                        element={<ConsentDashBoard />}
+                        element={
+                            !user ? (
+                                <Navigate to="/login" />
+                            ) : (
+                                <ConsentDashBoard />
+                            )
+                        }
+                    />
+
+                    <Route
+                        path="/patient/profile"
+                        exact
+                        element={!user ? <Navigate to="/login" /> : <Profile />}
                     />
                 </Routes>
             </Container>
