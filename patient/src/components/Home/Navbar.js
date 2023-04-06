@@ -52,15 +52,14 @@ const Navbar = () => {
                                     '&:hover': {
                                         border: '1px solid black',
                                         color: 'black',
-                                        backgroundColor: '#DDEEE2',
                                     },
                                 }}
                             >
                                 Log In
                             </Button>
                             <div class="dropdown-content">
-                                <a href="www.google.com">Link 1</a>
-                                <a href="www.google.com">Link 2</a>
+                                <a href="/login">Patient</a>
+                                <a href="www.google.com">Doctor</a>
 
                             </div>
                         </div>
@@ -78,15 +77,14 @@ const Navbar = () => {
                                     '&:hover': {
                                         border: '1px solid black',
                                         color: 'black',
-                                        backgroundColor: '#DDEEE2',
                                     },
                                 }}
                             >
                                 Register
                             </Button>
                             <div class="dropdown-content">
-                                <a href="www.google.com">Link 1</a>
-                                <a href="www.google.com">Link 2</a>
+                                <a href="/register">Patient</a>
+                                <a href="www.google.com">Doctor</a>
 
                             </div>
                         </div>
