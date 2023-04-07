@@ -4,7 +4,7 @@ const authReducer = (state = { authData: null }, action) => {
     switch (action.type) {
         case PATIENT_AUTH:
             localStorage.setItem(
-                'profile',
+                'hospital',
                 JSON.stringify({ ...action?.data })
             );
             return { ...state, authData: action?.data };

@@ -9,10 +9,10 @@ import Register from './components/Register/Register';
 import DashBoard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import ConsentDashBoard from './components/DashboardConsent/consentDashBoard';
-import HealthRecords from './components/showAllHealthRecords/HealthRecords.js';
+import HealthRecords from './components/HealthRecords/HealthRecords.js';
 
 const App = () => {
-    const user = JSON.parse(localStorage.getItem('profile'));
+    const user = JSON.parse(localStorage.getItem('patient'));
 
     return (
         <BrowserRouter>

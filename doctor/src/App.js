@@ -7,7 +7,7 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 
 const App = () => {
-    const user = JSON.parse(localStorage.getItem('profile'));
+    const user = JSON.parse(localStorage.getItem('doctor'));
 
     return (
         <BrowserRouter>
