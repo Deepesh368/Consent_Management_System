@@ -38,7 +38,7 @@ const App = () => {
                         path="/patient"
                         exact
                         element={
-                            !user ? <Navigate to="/login" /> : <DashBoard />
+                            user ? <Navigate to="/login" /> : <DashBoard />
                         }
                     />
 

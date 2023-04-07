@@ -1,13 +1,21 @@
 import React from 'react';
+import useState from 'react'
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const Header = () => {
     let ABHA_NUM = 123455959;
     let name = window.location.href.split('/')[3];
     let navigate = useNavigate(-1)
+    const dispatch = useDispatch();
+
+    const logout = () => {
+        dispatch({ type: 'LOGOUT' });
+    };
+
     return (
         <React.Fragment>
             <AppBar sx={{ background: '#10BB40', minHeight: '70px' }}>
@@ -55,6 +63,7 @@ const Header = () => {
                             color: 'white',
                         }}
                         variant="contained"
+                        onClick={logout}
                     >
                         Log out
                     </Button>
