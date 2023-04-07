@@ -4,12 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { Grid, Paper, TextField, Button, Link } from '@material-ui/core';
 import Header from './Header.js';
-<<<<<<< HEAD
 import { patientlogin } from '../../actions/patientAuth.js';
 // import { Box } from '@mui/material';
-=======
-import { login } from '../../actions/auth.js';
->>>>>>> 964c16b87a69ae0f911561f10213a12496105789
 
 const initialState = {
     email: '',
@@ -31,16 +27,9 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-<<<<<<< HEAD
         dispatch(patientlogin(formData, navigate));
     };
 
-=======
-        dispatch(login(formData, navigate));
-    };
-
-    let hospitalname = 'Hospital name';
->>>>>>> 964c16b87a69ae0f911561f10213a12496105789
     const paperStyle = {
         padding: 40,
         height: '45%',
@@ -62,14 +51,6 @@ const Login = () => {
                     <Paper elevation={10} style={paperStyle}>
                         <Grid align="center">
                             <h2 style={{ color: 'white', fontWeight: 'bold' }}>
-<<<<<<< HEAD
-=======
-                                {hospitalname}
-                            </h2>
-                        </Grid>
-                        <Grid align="center">
-                            <h2 style={{ color: 'white', fontWeight: 'bold' }}>
->>>>>>> 964c16b87a69ae0f911561f10213a12496105789
                                 Log In
                             </h2>
                         </Grid>
@@ -82,11 +63,7 @@ const Login = () => {
                                 height: '40px',
                             }}
                             name="email"
-<<<<<<< HEAD
                             label="   Enter Email"
-=======
-                            placeholder="   Enter Email"
->>>>>>> 964c16b87a69ae0f911561f10213a12496105789
                             fullWidth
                             required
                             onChange={handleChange}
@@ -101,20 +78,12 @@ const Login = () => {
                                 marginBottom: '30px',
                             }}
                             name="password"
-<<<<<<< HEAD
                             label="   Enter password"
-=======
-                            placeholder="   Enter password"
->>>>>>> 964c16b87a69ae0f911561f10213a12496105789
                             type="password"
                             fullWidth
                             required
                             onChange={handleChange}
                         />
-<<<<<<< HEAD
-
-=======
->>>>>>> 964c16b87a69ae0f911561f10213a12496105789
                         <Link
                             href="#"
                             style={{

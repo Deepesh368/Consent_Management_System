@@ -1,59 +1,95 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
+import Button from '@mui/material/Button';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import { Box } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+import './styles.css';
 
-const Header = () => {
+const Navbar = () => {
+    let navigate = useNavigate();
+
+    const registerPath = () => {
+        navigate('/register');
+    };
+
+    const loginPath = () => {
+        navigate('/login');
+    };
+
     return (
-        <React.Fragment>
-            <AppBar sx={{ background: '#10BB40', minHeight: '100px' }}>
+        <>
+            <AppBar sx={{ background: '#10BB40', minHeight: '70px' }}>
                 <Toolbar>
                     <Button
-                        disableElevation="true"
-                        sx={{
-                            '&:hover': { backgroundColor: '#10EB40' },
-                            margin: '5px',
-                            background: '#10BB40',
-                        }}
-                        variant="contained"
+                        // color="primary"
+                        sx={{ color: 'white' }}
+                        size="large"
+                        startIcon={<MedicalServicesIcon />}
                     >
-                        <ArrowBackIcon />{' '}
+                        Swastha Suraksha
                     </Button>
-                    <MedicalServicesIcon />
-                    <Typography
-                        marginLeft={2}
-                        sx={{ fontWeight: 'bold', fontSize: 28 }}
+
+                    <Box
+                        m={1}
+                        //margin
+                        display="flex"
+                        justifyContent="flex-end"
+                        alignItems="flex-end"
+                        sx={{ flexGrow: 1 }}
                     >
-                    <Button
-                        disableElevation="true"
-                        sx={{
-                            '&:hover': { backgroundColor: '#10EB40' },
-                            margin: '2px',
-                            background: '#10BB40',
-                        }}
-                        variant="contained"
-                        onClick={() => navigate(-1)}
-                    >
-                        <ArrowBackIcon />{' '}
-                    </Button>
-                    <Button
-                        <Typography>
-                            sx={{ color: 'white' }}
-                            size="large"
-                            startIcon={<MedicalServicesIcon />}
-                            onClick={() => navigate('/')}
-                            Swastha Suraksha
-                            </Typography>
-                    </Button>
-                    <h2 style={{ width: '10%', margin: '0px 0px 0px 970px' }}>
-                        Doctor Login{' '}
-                    </h2>
+                        <div className="dropdown">
+                            <Button
+                                className="dropbtn"
+                                variant="contained"
+                                onClick={loginPath}
+                                sx={{
+                                    marginRight: '10px',
+                                    borderRadius: 50,
+                                    color: 'black',
+                                    background: '#DDEEE2',
+                                    '&:hover': {
+                                        border: '1px solid black',
+                                        color: 'black',
+                                    },
+                                }}
+                            >
+                                Log In
+                            </Button>
+                            <div class="dropdown-content">
+                                <a href="/login">Patient</a>
+                                <a href="http://localhost:3002/login">Doctor</a>
+                            </div>
+                        </div>
+
+                        <div className="dropdown">
+                            <Button
+                                className="dropbtn"
+                                variant="contained"
+                                onClick={loginPath}
+                                sx={{
+                                    marginRight: '10px',
+                                    borderRadius: 50,
+                                    color: 'black',
+                                    background: '#DDEEE2',
+                                    '&:hover': {
+                                        border: '1px solid black',
+                                        color: 'black',
+                                    },
+                                }}
+                            >
+                                Register
+                            </Button>
+                            <div class="dropdown-content">
+                                <a href="/register">Patient</a>
+                            </div>
+                        </div>
+                    </Box>
                 </Toolbar>
             </AppBar>
         </>
     );
 };
 
-export default Header;
+export default Navbar;
