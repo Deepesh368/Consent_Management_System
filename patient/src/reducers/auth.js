@@ -1,14 +1,14 @@
-import { PATIENT_AUTH, PATIENT_LOGOUT } from '../constants/actionTypes';
+import { AUTH, LOGOUT } from '../constants/actionTypes';
 
 const authReducer = (state = { authData: null }, action) => {
     switch (action.type) {
-        case PATIENT_AUTH:
+        case AUTH:
             localStorage.setItem(
-                'profile',
+                'patient',
                 JSON.stringify({ ...action?.data })
             );
             return { ...state, authData: action?.data };
-        case PATIENT_LOGOUT:
+        case LOGOUT:
             localStorage.clear();
             return { ...state, authData: null };
         default:
