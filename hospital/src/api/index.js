@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:9001' });
+const API = axios.create({ baseURL: 'http://localhost:' });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('hospital')) {
@@ -11,8 +11,4 @@ API.interceptors.request.use((req) => {
     return req;
 });
 
-export const patientLogIn = (formData) => API.post('/patient/login', formData);
-export const patientLogOut = (formData) =>
-    API.post('/patient/logout', formData);
-
-// export const signUp = (formData) => API.post('/patient/register', formData);
+export const doctorRegister = (formData) => API.post('', formData);
