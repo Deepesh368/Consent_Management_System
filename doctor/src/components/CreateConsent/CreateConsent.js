@@ -29,28 +29,15 @@ const ConsentCreate = () => {
                     style={{ margin: '80px 0 20px  0' }}
                     alignContent="center"
                 >
-                    <h1
-                        style={{
-                            textAlign: 'center',
-                            marginLeft: '24%',
-                            alignItems: 'center',
-                            alignContent: 'center',
-                            width: '800px',
-                            height: '100px',
-                            borderRadius: '40px',
-                        }}
-                    >
-                        Hospital Name
-                    </h1>
 
-                    <div>
+            <div>
             <Header />
             <form >
-                <Grid style={{ margin: '0 0 50px  0' }}>
+                <Grid style={{ margin: '70px 0 50px  0' }}>
                     <Paper elevation={10} style={paperStyle}>
                         <Grid align="center">
                             <h2 style={{ color: 'white', fontWeight: 'bold' }}>
-                                Log In
+                                Create Consent
                             </h2>
                         </Grid>
                         <TextField
