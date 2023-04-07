@@ -4,8 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Grid, Paper, TextField, Button, Link } from '@material-ui/core';
 import Header from './Header.js';
-import { patientlogin } from '../../actions/patientAuth.js';
-// import { Box } from '@mui/material';
+import { login } from '../../actions/auth.js';
 
 const initialState = {
     email: '',
@@ -27,7 +26,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(patientlogin(formData, navigate));
+        dispatch(login(formData, navigate));
     };
 
     const paperStyle = {

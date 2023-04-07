@@ -58,33 +58,8 @@ const Navbar = () => {
                                 Log In
                             </Button>
                             <div class="dropdown-content">
-                                <a href="/login">Patient</a>
-                                <a href="www.google.com">Doctor</a>
-
-                            </div>
-                        </div>
-
-                        <div className='dropdown'>
-                            <Button
-                                className='dropbtn'
-                                variant="contained"
-                                onClick={loginPath}
-                                sx={{
-                                    marginRight: '10px',
-                                    borderRadius: 50,
-                                    color: 'black',
-                                    background: '#DDEEE2',
-                                    '&:hover': {
-                                        border: '1px solid black',
-                                        color: 'black',
-                                    },
-                                }}
-                            >
-                                Register
-                            </Button>
-                            <div class="dropdown-content">
-                                <a href="/register">Patient</a>
-                                <a href="www.google.com">Doctor</a>
+                                <a href="www.google.com">Patient</a>
+                                <a href="/login">Doctor</a>
 
                             </div>
                         </div>

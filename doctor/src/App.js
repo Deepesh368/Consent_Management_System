@@ -5,6 +5,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
+import DashBoard from './components/Dashboard/Dashboard'
+import ConsentDashboard from './components/DashboardConsent/consentDashBoard'
+
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem('doctor'));
@@ -19,6 +22,18 @@ const App = () => {
                         path="/login"
                         exact
                         element={!user ? <Login /> : <Navigate to="/doctor" />}
+                    />
+
+                    <Route
+                        path="/doctor"
+                        exact
+                        element={!user ? <DashBoard /> : <Navigate to="/doctor" />}
+                    />
+
+                    <Route
+                        path="/consents"
+                        exact
+                        element={!user ? <ConsentDashboard /> : <Navigate to="/doctor" />}
                     />
                 </Routes>
             </Container>
