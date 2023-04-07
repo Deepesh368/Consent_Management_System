@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signup } from '../../actions/auth.js';
 import { useNavigate } from 'react-router-dom';
-import './styles.css'
+import './styles.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { InputAdornment } from '@mui/material';
@@ -15,7 +15,6 @@ import {
     Link,
     Typography,
     IconButton,
-
 } from '@material-ui/core';
 // import './navBar/styles.css'
 import Header from './Header.js';
@@ -29,7 +28,6 @@ const initialState = {
 };
 
 const Register = () => {
-
     const [formData, setFormData] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setConfirmShowPassword] = useState(false);
@@ -38,10 +36,11 @@ const Register = () => {
 
     const handleShowPassword = () =>
         setShowPassword((prevShowPassword) => !prevShowPassword);
-    
-        const handleConfirmShowPassword = () =>
-        setConfirmShowPassword((prevConfirmShowPassword) => !prevConfirmShowPassword);
 
+    const handleConfirmShowPassword = () =>
+        setConfirmShowPassword(
+            (prevConfirmShowPassword) => !prevConfirmShowPassword
+        );
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -49,13 +48,12 @@ const Register = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const { name, email, password, confirmPassword, phone} = formData;
+        const { name, email, password, confirmPassword, phone } = formData;
         if (password !== confirmPassword) {
             alert("Passwords don't match");
-        }else if(phone.length!==10){
-            alert("Phone number should be 10 digits")
-        } 
-        else {
+        } else if (phone.length !== 10) {
+            alert('Phone number should be 10 digits');
+        } else {
             // make API call
             dispatch(signup(formData, navigate));
         }
@@ -81,7 +79,7 @@ const Register = () => {
                 <Grid style={{ margin: '10% 0 5% 0' }}>
                     <Paper elevation={10} style={paperStyle}>
                         <Grid align="center">
-                            <h2 style={{ color: 'white', fontWeight: 'bold',}}>
+                            <h2 style={{ color: 'white', fontWeight: 'bold' }}>
                                 Register
                             </h2>
                         </Grid>
@@ -109,7 +107,7 @@ const Register = () => {
                             }}
                             name="phone"
                             label="   Phone Number"
-                            type='number'
+                            type="number"
                             fullWidth
                             required
                             onChange={handleChange}
@@ -142,11 +140,24 @@ const Register = () => {
                             onChange={handleChange}
                         />
                         <TextField
-                            InputProps={{endAdornment: <InputAdornment position="end">
-                            <IconButton>
-                                {!showPassword?<VisibilityIcon onClick={handleShowPassword}/>:<VisibilityOffIcon onClick={handleShowPassword}/>}
-                            </IconButton>
-                            </InputAdornment>, disableUnderline: true }}
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton>
+                                            {!showPassword ? (
+                                                <VisibilityIcon
+                                                    onClick={handleShowPassword}
+                                                />
+                                            ) : (
+                                                <VisibilityOffIcon
+                                                    onClick={handleShowPassword}
+                                                />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                                disableUnderline: true,
+                            }}
                             style={{
                                 background: 'white',
                                 borderRadius: 50,
@@ -155,17 +166,34 @@ const Register = () => {
                             }}
                             label="   Password"
                             name="password"
-                            type={showPassword?"text":"password"}
+                            type={showPassword ? 'text' : 'password'}
                             fullWidth
                             required
                             onChange={handleChange}
                         />
                         <TextField
-                            InputProps={{endAdornment: <InputAdornment position="end">
-                            <IconButton>
-                                {!showConfirmPassword?<VisibilityIcon onClick={handleConfirmShowPassword}/>:<VisibilityOffIcon onClick={handleConfirmShowPassword}/>}
-                            </IconButton>
-                            </InputAdornment>, disableUnderline: true }}
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton>
+                                            {!showConfirmPassword ? (
+                                                <VisibilityIcon
+                                                    onClick={
+                                                        handleConfirmShowPassword
+                                                    }
+                                                />
+                                            ) : (
+                                                <VisibilityOffIcon
+                                                    onClick={
+                                                        handleConfirmShowPassword
+                                                    }
+                                                />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                                disableUnderline: true,
+                            }}
                             style={{
                                 background: 'white',
                                 borderRadius: 50,
@@ -174,7 +202,7 @@ const Register = () => {
                             }}
                             label="   Confirm Password"
                             name="confirmPassword"
-                            type={showConfirmPassword?"text":"password"}
+                            type={showConfirmPassword ? 'text' : 'password'}
                             fullWidth
                             required
                             onChange={handleChange}
