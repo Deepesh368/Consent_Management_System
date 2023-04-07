@@ -2,10 +2,12 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     let ABHA_NUM = 123455959;
     let name = window.location.href.split('/')[3];
+    let navigate = useNavigate(-1)
     return (
         <React.Fragment>
             <AppBar sx={{ background: '#10BB40', minHeight: '70px' }}>
@@ -18,16 +20,19 @@ const Header = () => {
                             background: '#10BB40',
                         }}
                         variant="contained"
+                        onClick={()=>navigate(-1)}
                     >
                         <ArrowBackIcon />{' '}
                     </Button>
-                    <MedicalServicesIcon />
-                    <Typography
-                        marginLeft={2}
-                        sx={{ fontWeight: 'bold', fontSize: 32 }}
+                    <Button
+                        // color="primary"
+                        sx={{ color: 'white' }}
+                        size="large"
+                        startIcon={<MedicalServicesIcon />}
+                        onClick={() => navigate('/')}
                     >
                         Swastha Suraksha
-                    </Typography>
+                    </Button>
                     <Button
                         sx={{
                             '&:hover': { backgroundColor: '#FAF9F6' },
@@ -37,6 +42,7 @@ const Header = () => {
                             color: 'black',
                         }}
                         variant="contained"
+                        onClick={()=>navigate("/patient/profile")}
                     >
                         Profile
                     </Button>

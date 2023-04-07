@@ -2,9 +2,11 @@ import React from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     let name = window.location.href.split('/')[3];
+    let navigate = useNavigate()
     return (
         <React.Fragment>
             <AppBar sx={{ background: '#10BB40', minHeight: '70px' }}>
@@ -17,6 +19,7 @@ const Header = () => {
                             background: '#10BB40',
                         }}
                         variant="contained"
+                        onClick={()=>navigate(-1)}
                     >
                         <ArrowBackIcon />{' '}
                     </Button>
