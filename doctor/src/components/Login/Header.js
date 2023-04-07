@@ -6,12 +6,26 @@ import { useNavigate } from 'react-router-dom';
 import { Box } from '@material-ui/core';
 
 const Header = () => {
-    let navigate = useNavigate();
-
     return (
-        <>
-            <AppBar sx={{ background: '#10BB40', minHeight: '70px' }}>
+        <React.Fragment>
+            <AppBar sx={{ background: '#10BB40', minHeight: '100px' }}>
                 <Toolbar>
+                    <Button
+                        disableElevation="true"
+                        sx={{
+                            '&:hover': { backgroundColor: '#10EB40' },
+                            margin: '5px',
+                            background: '#10BB40',
+                        }}
+                        variant="contained"
+                    >
+                        <ArrowBackIcon />{' '}
+                    </Button>
+                    <MedicalServicesIcon />
+                    <Typography
+                        marginLeft={2}
+                        sx={{ fontWeight: 'bold', fontSize: 28 }}
+                    >
                     <Button
                         disableElevation="true"
                         sx={{
@@ -25,26 +39,17 @@ const Header = () => {
                         <ArrowBackIcon />{' '}
                     </Button>
                     <Button
-                        // color="primary"
-                        sx={{ color: 'white' }}
-                        size="large"
-                        startIcon={<MedicalServicesIcon />}
-                        onClick={() => navigate('/')}
-                    >
-                        Swastha Suraksha
+                        <Typography>
+                            sx={{ color: 'white' }}
+                            size="large"
+                            startIcon={<MedicalServicesIcon />}
+                            onClick={() => navigate('/')}
+                            Swastha Suraksha
+                            </Typography>
                     </Button>
-                    <Box
-                        m={1}
-                        //margin
-                        display="flex"
-                        justifyContent="flex-end"
-                        alignItems="flex-end"
-                        sx={{ flexGrow: 1 }}
-                    >
-                        <h2 style={{ width: '20%', marginLeft: 'auto' }}>
-                            Doctor Login
-                        </h2>
-                    </Box>
+                    <h2 style={{ width: '10%', margin: '0px 0px 0px 970px' }}>
+                        Doctor Login{' '}
+                    </h2>
                 </Toolbar>
             </AppBar>
         </>

@@ -9,18 +9,17 @@ import Register from './components/Register/Register';
 import DashBoard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import ConsentDashBoard from './components/DashboardConsent/consentDashBoard';
-import HealthRecords from './components/showAllHealthRecords/HealthRecords.js';
+import HealthRecords from './components/HealthRecords/HealthRecords.js';
 
 const App = () => {
-    const user = JSON.parse(localStorage.getItem('profile'));
+    const user = JSON.parse(localStorage.getItem('patient'));
 
     return (
         <BrowserRouter>
             <Container maxWidth="xl">
                 <Routes>
-                
                     <Route path="/" exact element={<Home />} />
-                    <Route path="/patient/records" exact element={<HealthRecords />} />
+
                     <Route
                         path="/register"
                         exact
@@ -39,14 +38,14 @@ const App = () => {
                         path="/patient"
                         exact
                         element={
-                            user ? <Navigate to="/login" /> : <DashBoard />
+                            !user ? <Navigate to="/login" /> : <DashBoard />
                         }
                     />
 
                     <Route
                         path="/patient/consent"
                         element={
-                            user ? (
+                            !user ? (
                                 <Navigate to="/login" />
                             ) : (
                                 <ConsentDashBoard />
@@ -60,6 +59,13 @@ const App = () => {
                         element={!user ? <Navigate to="/login" /> : <Profile />}
                     />
 
+                    <Route
+                        path="/patient/records"
+                        exact
+                        element={
+                            !user ? <Navigate to="/login" /> : <HealthRecords />
+                        }
+                    />
                 </Routes>
             </Container>
         </BrowserRouter>

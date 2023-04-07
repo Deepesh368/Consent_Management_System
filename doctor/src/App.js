@@ -7,14 +7,19 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 
 const App = () => {
-    const user = JSON.parse(localStorage.getItem('profile'));
+    const user = JSON.parse(localStorage.getItem('doctor'));
 
     return (
         <BrowserRouter>
             <Container maxWidth="xl">
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" exact element={<Login />} />
+                    <Route path="/" exact element={<Navigate to="/login" />} />
+
+                    <Route
+                        path="/login"
+                        exact
+                        element={!user ? <Login /> : <Navigate to="/doctor" />}
+                    />
                 </Routes>
             </Container>
         </BrowserRouter>
