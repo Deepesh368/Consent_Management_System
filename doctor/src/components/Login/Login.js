@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { Grid, Paper, TextField, Button, Link } from '@material-ui/core';
 import Header from './Header.js';
-import { login } from '../../actions/auth.js';
+import { patientlogin } from '../../actions/patientAuth.js';
+// import { Box } from '@mui/material';
 
 const initialState = {
     email: '',
@@ -26,10 +27,9 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(login(formData, navigate));
+        dispatch(patientlogin(formData, navigate));
     };
 
-    let hospitalname = 'Hospital name';
     const paperStyle = {
         padding: 40,
         height: '45%',
@@ -51,11 +51,6 @@ const Login = () => {
                     <Paper elevation={10} style={paperStyle}>
                         <Grid align="center">
                             <h2 style={{ color: 'white', fontWeight: 'bold' }}>
-                                {hospitalname}
-                            </h2>
-                        </Grid>
-                        <Grid align="center">
-                            <h2 style={{ color: 'white', fontWeight: 'bold' }}>
                                 Log In
                             </h2>
                         </Grid>
@@ -68,7 +63,7 @@ const Login = () => {
                                 height: '40px',
                             }}
                             name="email"
-                            placeholder="   Enter Email"
+                            label="   Enter Email"
                             fullWidth
                             required
                             onChange={handleChange}
@@ -83,7 +78,7 @@ const Login = () => {
                                 marginBottom: '30px',
                             }}
                             name="password"
-                            placeholder="   Enter password"
+                            label="   Enter password"
                             type="password"
                             fullWidth
                             required
