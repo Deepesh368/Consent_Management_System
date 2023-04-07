@@ -4,7 +4,7 @@ import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
+import { AUTH, LOGOUT } from '../../constants/actionTypes';
 
 const Header = () => {
     let ABHA_NUM = 123455959
@@ -33,7 +33,7 @@ const Header = () => {
                         Swastha Suraksha
                     </Button>
                     <Button onClick={()=>navigate("/patient/profile")} sx={{"&:hover": {backgroundColor: "#D3D3D3"}, marginLeft:'auto', borderRadius:'20px', background:"white", color:"black"}} variant="contained">Profile</Button>
-                    <Button sx={{"&:hover": {backgroundColor: "#8A0717"}, marginLeft:'10px', borderRadius:'20px', background:"red", color:"white"}} variant="contained">Log out</Button>
+                    <Button sx={{"&:hover": {backgroundColor: "#8A0717"}, marginLeft:'10px', borderRadius:'20px', background:"red", color:"white"}} onClick={logout} variant="contained">Log out</Button>
                 </Toolbar>
                 <Typography marginLeft={8}  sx={{fontWeight: 'bold', fontSize: 16}}>
                     {name}, ABHA ID: {ABHA_NUM}

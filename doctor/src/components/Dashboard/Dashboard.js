@@ -4,8 +4,7 @@ import Header from './Navbar.js';
 import { useNavigate } from 'react-router-dom';
 
 
-
-const PatientDashBoard = () => {
+const DoctorDashBoard = () => {
     let navigate = useNavigate()
     const btnstyle = {
         '&:hover': { background: '#FF000' },
@@ -42,7 +41,7 @@ const PatientDashBoard = () => {
                         Hospital Name
                     </h1>
 
-                    <Button style={btnstyle}>Create Consent</Button>
+                    <Button style={btnstyle} onClick={()=>navigate('/createconsent')}>Create Consent</Button>
                     <Button onClick={()=>navigate('/consents')} style={btnstyle}>View All Consents</Button>
                 </Grid>
             </div>
@@ -50,4 +49,4 @@ const PatientDashBoard = () => {
     );
 };
 
-export default PatientDashBoard;
+export default DoctorDashBoard;
