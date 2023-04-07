@@ -50,6 +50,15 @@ const Header = () => {
                         Log out
                     </Button>
                 </Toolbar>
+                    <Typography
+                            marginLeft={2}
+                            sx={{ fontWeight: 'bold', marginLeft:'4%' ,fontSize: 16 }}
+                        >
+                        Hospital Name
+                    </Typography>
+                <Toolbar>
+
+                </Toolbar>
             </AppBar>
             {/* <AppBar sx={{background: "#10BB40", minHeight: '70px'}}>
                 <Toolbar>
