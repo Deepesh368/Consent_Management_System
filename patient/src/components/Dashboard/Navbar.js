@@ -1,19 +1,21 @@
 import React from 'react';
-import useState from 'react'
+import useState from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { LOGOUT } from '../../constants/actionTypes';
 
 const Header = () => {
     let ABHA_NUM = 123455959;
     let name = window.location.href.split('/')[3];
-    let navigate = useNavigate(-1)
+    let navigate = useNavigate();
     const dispatch = useDispatch();
 
     const logout = () => {
-        dispatch({ type: 'LOGOUT' });
+        navigate('/');
+        dispatch({ type: LOGOUT });
     };
 
     return (
@@ -28,7 +30,7 @@ const Header = () => {
                             background: '#10BB40',
                         }}
                         variant="contained"
-                        onClick={()=>navigate(-1)}
+                        onClick={() => navigate(-1)}
                     >
                         <ArrowBackIcon />{' '}
                     </Button>
@@ -50,7 +52,7 @@ const Header = () => {
                             color: 'black',
                         }}
                         variant="contained"
-                        onClick={()=>navigate("/patient/profile")}
+                        onClick={() => navigate('/patient/profile')}
                     >
                         Profile
                     </Button>
