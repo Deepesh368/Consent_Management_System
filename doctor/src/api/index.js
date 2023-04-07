@@ -3,12 +3,13 @@ import axios from 'axios';
 const API = axios.create({ baseURL: 'http://localhost:9006' });
 
 API.interceptors.request.use((req) => {
-    if (localStorage.getItem('profile')) {
+    if (localStorage.getItem('doctor')) {
         req.headers.Authorization = `Bearer ${
-            JSON.parse(localStorage.getItem('profile')).token
+            JSON.parse(localStorage.getItem('doctor')).token
         }`;
     }
     return req;
 });
 
-export const logIn = (formData) =>  API.post('/api/v1/auth/authenticate', formData);
+export const logIn = (formData) =>
+    API.post('/api/v1/auth/authenticate', formData);
