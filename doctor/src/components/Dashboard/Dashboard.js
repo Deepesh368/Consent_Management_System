@@ -1,10 +1,8 @@
 import { Grid, Button, Toolbar } from '@material-ui/core';
 import React from 'react';
 import Header from './Navbar.js';
-import { useNavigate } from 'react-router-dom';
 
 const PatientDashBoard = () => {
-    let navigate = useNavigate();
     const btnstyle = {
         '&:hover': { background: '#FF000' },
         backgroundColor: '#20CD51',
@@ -32,19 +30,16 @@ const PatientDashBoard = () => {
                             marginLeft: '24%',
                             alignItems: 'center',
                             alignContent: 'center',
-                            background: '#20CD51',
-                            color: 'white',
                             width: '800px',
                             height: '100px',
                             borderRadius: '40px',
-                            fontStyle: 'italic',
                         }}
                     >
-                        Welcome, {window.location.href.split('/')[3]}!
+                        Hospital Name
                     </h1>
 
-                    <Button style={btnstyle} onClick={()=>navigate("/patient/consent")}>View data Requests</Button>
-                    <Button style={btnstyle} onClick={()=>navigate("/patient/records")}>View Hospital Records</Button>
+                    <Button style={btnstyle}>Create Consent</Button>
+                    <Button style={btnstyle}>View All Consents</Button>
                 </Grid>
             </div>
         </div>

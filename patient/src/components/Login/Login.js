@@ -27,6 +27,7 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login(formData, navigate));
+        navigate('/patient');
     };
 
     const paperStyle = {
