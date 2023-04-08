@@ -33,7 +33,7 @@ const Header = () => {
 
                     <Typography
                         marginLeft={2}
-                        sx={{ fontWeight: 'bold', fontSize: 8 }}
+                        sx={{ fontWeight: 'bold', marginLeft:'65%' ,fontSize: 16 }}
                     >
                         Doctor Name
                     </Typography>

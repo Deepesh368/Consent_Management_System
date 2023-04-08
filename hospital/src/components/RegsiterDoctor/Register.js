@@ -1,4 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { doctorRegister } from '../../actions/auth.js';
+import { useNavigate } from 'react-router-dom';
+import './styles.css';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { InputAdornment } from '@mui/material';
+
 import {
     Grid,
     Paper,
@@ -6,10 +14,51 @@ import {
     Button,
     Link,
     Typography,
+    IconButton,
 } from '@material-ui/core';
+// import './navBar/styles.css'
 import Header from './Header.js';
 
+const initialState = {
+    name: '',
+    department: '',
+    position: '',
+    specilization: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+};
+
 const DoctorRegister = () => {
+    const [formData, setFormData] = useState(initialState);
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setConfirmShowPassword] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleShowPassword = () =>
+        setShowPassword((prevShowPassword) => !prevShowPassword);
+
+    const handleConfirmShowPassword = () =>
+        setConfirmShowPassword(
+            (prevConfirmShowPassword) => !prevConfirmShowPassword
+        );
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const { name, email, password, confirmPassword, phone } = formData;
+        if (password !== confirmPassword) {
+            alert("Passwords don't match");
+        } else {
+            // make API call
+            dispatch(doctorRegister(formData, navigate));
+        }
+    };
+
     const paperStyle = {
         padding: 20,
         height: '40%',
@@ -26,100 +75,163 @@ const DoctorRegister = () => {
     return (
         <div>
             <Header />
-            <Grid style={{ margin: '10% 0 5% 0' }}>
-                <Paper elevation={10} style={paperStyle}>
-                    <Grid align="center">
-                        <h2 style={{ color: 'white', fontWeight: 'bold' }}>
-                            Register a Doctor
-                        </h2>
-                    </Grid>
-                    <TextField
-                        InputProps={{ disableUnderline: true }}
-                        style={{
-                            background: 'white',
-                            borderRadius: 50,
-                            margin: '3px',
-                            height: '40px',
-                        }}
-                        placeholder="   Name"
-                        fullWidth
-                        required
-                    />
-                    <TextField
-                        InputProps={{ disableUnderline: true }}
-                        style={{
-                            background: 'white',
-                            borderRadius: 50,
-                            margin: '4px',
-                            height: '40px',
-                        }}
-                        placeholder="   Phone Number"
-                        type="password"
-                        fullWidth
-                        required
-                    />
-                    <TextField
-                        InputProps={{ disableUnderline: true }}
-                        style={{
-                            background: 'white',
-                            borderRadius: 50,
-                            margin: '4px',
-                            height: '40px',
-                        }}
-                        placeholder="   Date Of Birth"
-                        type="password"
-                        fullWidth
-                        required
-                    />
-                    <TextField
-                        InputProps={{ disableUnderline: true }}
-                        style={{
-                            background: 'white',
-                            borderRadius: 50,
-                            margin: '4px',
-                            height: '40px',
-                        }}
-                        placeholder="   Email"
-                        type="password"
-                        fullWidth
-                        required
-                    />
-                    <TextField
-                        InputProps={{ disableUnderline: true }}
-                        style={{
-                            background: 'white',
-                            borderRadius: 50,
-                            margin: '4px',
-                            height: '40px',
-                        }}
-                        placeholder="   Password"
-                        type="password"
-                        fullWidth
-                        required
-                    />
-                    <TextField
-                        InputProps={{ disableUnderline: true }}
-                        style={{
-                            background: 'white',
-                            borderRadius: 50,
-                            margin: '4px',
-                            height: '40px',
-                        }}
-                        placeholder="   Confirm Password"
-                        type="password"
-                        fullWidth
-                        required
-                    />
-                </Paper>
-            </Grid>
-            <Button
-                type="submit"
-                color="primary"
-                variant="contained"
-                style={btnstyle}
-            >
-                Register
-            </Button>
+            <form onSubmit={handleSubmit}>
+                <Grid style={{ margin: '10% 0 5% 0' }}>
+                    <Paper elevation={10} style={paperStyle}>
+                        <Grid align="center">
+                            <h2 style={{ color: 'white', fontWeight: 'bold' }}>
+                                Register a Doctor
+                            </h2>
+                        </Grid>
+                        <TextField
+                            InputProps={{ disableUnderline: true }}
+                            style={{
+                                background: 'white',
+                                borderRadius: 50,
+                                margin: '3px',
+                                height: '40px',
+                            }}
+                            name="name"
+                            placeholder="   Name"
+                            fullWidth
+                            required
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            InputProps={{ disableUnderline: true }}
+                            style={{
+                                background: 'white',
+                                borderRadius: 50,
+                                margin: '4px',
+                                height: '40px',
+                            }}
+                            name="department"
+                            placeholder="   Department"
+                            fullWidth
+                            required
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            InputProps={{ disableUnderline: true }}
+                            style={{
+                                background: 'white',
+                                borderRadius: 50,
+                                margin: '4px',
+                                height: '40px',
+                            }}
+                            name="position"
+                            placeholder="   Position"
+                            fullWidth
+                            required
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            InputProps={{ disableUnderline: true }}
+                            style={{
+                                background: 'white',
+                                borderRadius: 50,
+                                margin: '4px',
+                                height: '40px',
+                            }}
+                            name="specilization"
+                            placeholder="   Specilization"
+                            fullWidth
+                            required
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            InputProps={{ disableUnderline: true }}
+                            style={{
+                                background: 'white',
+                                borderRadius: 50,
+                                margin: '4px',
+                                height: '40px',
+                            }}
+                            name="email"
+                            placeholder="   Email"
+                            fullWidth
+                            required
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton>
+                                            {!showPassword ? (
+                                                <VisibilityIcon
+                                                    onClick={handleShowPassword}
+                                                />
+                                            ) : (
+                                                <VisibilityOffIcon
+                                                    onClick={handleShowPassword}
+                                                />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                                disableUnderline: true,
+                            }}
+                            style={{
+                                background: 'white',
+                                borderRadius: 50,
+                                margin: '4px',
+                                height: '40px',
+                            }}
+                            label="   Password"
+                            name="password"
+                            type={showPassword ? 'text' : 'password'}
+                            fullWidth
+                            required
+                            onChange={handleChange}
+                        />
+                        <TextField
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton>
+                                            {!showConfirmPassword ? (
+                                                <VisibilityIcon
+                                                    onClick={
+                                                        handleConfirmShowPassword
+                                                    }
+                                                />
+                                            ) : (
+                                                <VisibilityOffIcon
+                                                    onClick={
+                                                        handleConfirmShowPassword
+                                                    }
+                                                />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                                disableUnderline: true,
+                            }}
+                            style={{
+                                background: 'white',
+                                borderRadius: 50,
+                                margin: '4px',
+                                height: '40px',
+                            }}
+                            label="   Confirm Password"
+                            name="confirmPassword"
+                            type={showConfirmPassword ? 'text' : 'password'}
+                            fullWidth
+                            required
+                            onChange={handleChange}
+                        />
+                    </Paper>
+                </Grid>
+                <Button
+                    type="submit"
+                    color="primary"
+                    variant="contained"
+                    style={btnstyle}
+                >
+                    Register
+                </Button>
+            </form>
         </div>
     );
 };
