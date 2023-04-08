@@ -30,7 +30,7 @@ const Header = () => {
                             background: '#10BB40',
                         }}
                         variant="contained"
-                        onClick={() => navigate(-1)}
+                        onClick={() => navigate('/')}
                     >
                         <ArrowBackIcon />{' '}
                     </Button>

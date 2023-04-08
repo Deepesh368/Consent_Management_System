@@ -67,7 +67,7 @@ const Navbar = () => {
                             <Button
                                 className="dropbtn"
                                 variant="contained"
-                                onClick={loginPath}
+                                onClick={registerPath}
                                 sx={{
                                     marginRight: '10px',
                                     borderRadius: 50,
