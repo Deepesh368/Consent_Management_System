@@ -2,9 +2,10 @@ import { Grid, Button, Toolbar, TextField, Paper } from '@material-ui/core';
 import React from 'react';
 import Header from './navbar.js';
 import { useNavigate } from 'react-router-dom';
-
+import './styles.css'
 
 const EditConsent = () => {
+    
     let navigate = useNavigate()
     
     const paperStyle = {
@@ -61,6 +62,7 @@ const EditConsent = () => {
                                     marginBottom: '30px',
                                 }}
                                 name="start Date"
+                                value="2018-07-22"
                                 type="date"
                                 fullWidth
                                 required
@@ -85,7 +87,7 @@ const EditConsent = () => {
                                 marginBottom: '30px',
                             }}
                             name="End Date"
-                            
+                            value="2023-07-22"
                             type="date"
                             fullWidth
                             required
@@ -111,6 +113,7 @@ const EditConsent = () => {
                             }}
                             name="password"
                             type="text"
+                            value='    Emergency'
                             fullWidth
                             required
                         />
