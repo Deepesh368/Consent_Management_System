@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { Grid, Paper, TextField, Button, Link } from '@material-ui/core';
 import Header from './Header.js';
@@ -12,6 +12,8 @@ const initialState = {
 };
 
 const Login = () => {
+    const { authData, isLoading } = useSelector((state) => state.auth);
+
     const [formData, setFormData] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
@@ -43,6 +45,11 @@ const Login = () => {
         width: '150px',
         borderRadius: 50,
     };
+
+    if (authData && !isLoading) {
+        return <Navigate to="/patient" />;
+    }
+
     return (
         <div>
             <Header />
