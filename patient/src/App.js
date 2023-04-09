@@ -10,6 +10,7 @@ import DashBoard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import ConsentDashBoard from './components/DashboardConsent/consentDashBoard';
 import HealthRecords from './components/HealthRecords/HealthRecords.js';
+import EditConsent from './components/EditConsent/EditConsent';
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem('patient'));
@@ -65,6 +66,12 @@ const App = () => {
                         element={
                             !user ? <Navigate to="/login" /> : <HealthRecords />
                         }
+                    />
+
+                    <Route
+                        path="/editconsent"
+                        exact
+                        element={!user ? <EditConsent /> : <Navigate to="/patient" />}
                     />
                 </Routes>
             </Container>
