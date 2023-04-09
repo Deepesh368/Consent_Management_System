@@ -4,7 +4,7 @@ import {
     GET_HEALTH_RECORDS,
 } from '../constants/actionTypes';
 
-const reducer = (state = { isLoading: true, records: [] }, action) => {
+const reducer = (state = { isLoading: false, records: [] }, action) => {
     switch (action.type) {
         case START_LOADING:
             return { ...state, isLoading: true };
@@ -12,7 +12,7 @@ const reducer = (state = { isLoading: true, records: [] }, action) => {
             return { ...state, isLoading: false };
         case GET_HEALTH_RECORDS:
             console.log(action.payload.data);
-            return { ...state, records: action.payload.data };
+            return { ...state, records: action.payload };
         default:
             return state;
     }

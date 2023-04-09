@@ -1,10 +1,25 @@
 import { Grid, Button, Toolbar } from '@material-ui/core';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './Navbar.js';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import decode from 'jwt-decode';
 
 const PatientDashBoard = () => {
     let navigate = useNavigate();
+
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('patient'))
+    );
+    const [name, setName] = useState('NULL');
+
+    useEffect(() => {
+        const token = user?.token;
+        if (token) {
+            const decodedToken = decode(token);
+            setName(decodedToken?.sub);
+        }
+    }, []);
+
     const btnstyle = {
         '&:hover': { background: '#FF000' },
         backgroundColor: '#20CD51',
@@ -17,6 +32,10 @@ const PatientDashBoard = () => {
         fontWeight: 'bold',
         fontSize: 20,
     };
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
+
     return (
         <div>
             <Header />
@@ -40,11 +59,21 @@ const PatientDashBoard = () => {
                             fontStyle: 'italic',
                         }}
                     >
-                        Welcome, {window.location.href.split('/')[3]}!
+                        Welcome, {name}!
                     </h1>
 
-                    <Button style={btnstyle} onClick={()=>navigate("/patient/consent")}>View data Requests</Button>
-                    <Button style={btnstyle} onClick={()=>navigate("/patient/records")}>View Hospital Records</Button>
+                    <Button
+                        style={btnstyle}
+                        onClick={() => navigate('/patient/consents')}
+                    >
+                        View data Requests
+                    </Button>
+                    <Button
+                        style={btnstyle}
+                        onClick={() => navigate('/patient/records')}
+                    >
+                        View Hospital Records
+                    </Button>
                 </Grid>
             </div>
         </div>

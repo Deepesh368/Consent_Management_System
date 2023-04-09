@@ -10,6 +10,7 @@ import DashBoard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import ConsentDashBoard from './components/DashboardConsent/consentDashBoard';
 import HealthRecords from './components/HealthRecords/HealthRecords.js';
+import UpdateForm from './components/DashboardConsent/UpdateForm/UpdateForm';
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem('patient'));
@@ -19,7 +20,6 @@ const App = () => {
             <Container maxWidth="xl">
                 <Routes>
                     <Route path="/" exact element={<Home />} />
-
                     <Route
                         path="/register"
                         exact
@@ -27,44 +27,25 @@ const App = () => {
                             !user ? <Register /> : <Navigate to="/patient" />
                         }
                     />
-
                     <Route
                         path="/login"
                         exact
                         element={!user ? <Login /> : <Navigate to="/patient" />}
                     />
-
+                    <Route path="/patient" element={<DashBoard />} />
                     <Route
-                        path="/patient"
-                        exact
-                        element={
-                            !user ? <Navigate to="/login" /> : <DashBoard />
-                        }
+                        path="/patient/consents"
+                        element={<ConsentDashBoard />}
                     />
-
-                    <Route
-                        path="/patient/consent"
-                        element={
-                            !user ? (
-                                <Navigate to="/login" />
-                            ) : (
-                                <ConsentDashBoard />
-                            )
-                        }
-                    />
-
-                    <Route
-                        path="/patient/profile"
-                        exact
-                        element={!user ? <Navigate to="/login" /> : <Profile />}
-                    />
-
+                    <Route path="/patient/profile" element={<Profile />} />
                     <Route
                         path="/patient/records"
-                        exact
-                        element={
-                            !user ? <Navigate to="/login" /> : <HealthRecords />
-                        }
+                        element={<HealthRecords />}
+                    />
+
+                    <Route
+                        path="patient/consents/:id"
+                        element={<UpdateForm />}
                     />
                 </Routes>
             </Container>

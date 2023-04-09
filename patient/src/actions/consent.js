@@ -21,7 +21,7 @@ export const getAllConsents = (patient_id) => async (dispatch) => {
 //update consent
 const updateConsent = (id, updatedConsent) => async (dispatch) => {
     try {
-        const { data } = await api.updateConsent(id, updateConsent);
+        const { data } = await api.updateConsent(id, updatedConsent);
         dispatch({ type: UPDATE_CONSENT, payload: data });
     } catch (error) {
         console.log(error.message);
