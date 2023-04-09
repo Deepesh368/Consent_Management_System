@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { doctorRegister } from '../../actions/auth.js';
-import { useNavigate } from 'react-router-dom';
+import { doctorRegister } from '../../actions/index.js';
+import { Navigate } from 'react-router-dom';
 import './styles.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -16,25 +16,28 @@ import {
     Typography,
     IconButton,
 } from '@material-ui/core';
-// import './navBar/styles.css'
+
 import Header from './Header.js';
 
 const initialState = {
     name: '',
-    department: '',
-    position: '',
-    specilization: '',
     email: '',
     password: '',
+    departmant: '',
+    position: '',
+    specialization: '',
     confirmPassword: '',
 };
 
 const DoctorRegister = () => {
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('hospital'))
+    );
+
     const [formData, setFormData] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setConfirmShowPassword] = useState(false);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const handleShowPassword = () =>
         setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -46,6 +49,7 @@ const DoctorRegister = () => {
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        // console.log(formData);
     };
 
     const handleSubmit = (e) => {
@@ -55,7 +59,7 @@ const DoctorRegister = () => {
             alert("Passwords don't match");
         } else {
             // make API call
-            dispatch(doctorRegister(formData, navigate));
+            dispatch(doctorRegister(formData));
         }
     };
 
@@ -72,6 +76,11 @@ const DoctorRegister = () => {
         width: '150px',
         borderRadius: 50,
     };
+
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
+
     return (
         <div>
             <Header />
@@ -105,7 +114,7 @@ const DoctorRegister = () => {
                                 margin: '4px',
                                 height: '40px',
                             }}
-                            name="department"
+                            name="departmant"
                             placeholder="   Department"
                             fullWidth
                             required
@@ -133,8 +142,8 @@ const DoctorRegister = () => {
                                 margin: '4px',
                                 height: '40px',
                             }}
-                            name="specilization"
-                            placeholder="   Specilization"
+                            name="specialization"
+                            placeholder="   Specialization"
                             fullWidth
                             required
                             onChange={handleChange}
