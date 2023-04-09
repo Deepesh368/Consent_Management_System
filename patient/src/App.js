@@ -45,7 +45,7 @@ const App = () => {
 
                     <Route
                         path="patient/consents/:id"
-                        element={<UpdateForm />}
+                        element={<EditConsent />}
                     />
 
                     <Route
