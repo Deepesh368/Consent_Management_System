@@ -1,38 +1,36 @@
-import { Toolbar, Grid, CircularProgress } from '@material-ui/core';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Toolbar, Grid } from '@material-ui/core';
+import { Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from './Navbar.js';
 import Consent from './Consent.js';
-import { useSelector } from 'react-redux';
+import { getAllConsents } from '../../actions/consent.js';
 import decode from 'jwt-decode';
 
-import { getAllConsents } from '../../actions/consent.js';
-
 const ConsentDashBoard = () => {
-    const { consents, isLoading } = useSelector((state) => state.consents);
+    const dispatch = useDispatch();
+
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem('patient'))
     );
+
+    const [toUpdate, setToUpdate] = useState(false);
 
     useEffect(() => {
         const token = user?.token;
         if (token) {
             const decodedToken = decode(token);
-            const patient_id = decodedToken.id;
-            dispatch(getAllConsents(patient_id));
+            dispatch(getAllConsents(154));
         }
     }, []);
 
-    let cards = [];
-    for (let i = 0; i < 20; i++) {
-        cards.push(i);
+    const { isLoading, consents } = useSelector((state) => state.consent);
+
+    if (!user) {
+        return <Navigate to="/login" />;
     }
-    let status = 'green';
 
-    if (!consents.length && !isLoading) return 'No consent requests';
-
-    return isLoading ? (
-        <CircularProgress />
-    ) : (
+    return (
         <div>
             <Header />
             <Toolbar />
@@ -43,8 +41,23 @@ const ConsentDashBoard = () => {
                 justifyContent="center"
                 alignItems="center"
             >
-                {cards.map((id) => (
-                    <Consent key={id} consentNum={id} status={status} /> //NEED TO PASS CONSENT PROPERTIES
+                {consents.map((consent) => (
+                    <Consent
+                        key={consent.requestId}
+                        requestId={consent.requestId}
+                        doctorId={consent.doctorId}
+                        patientId={consent.patientId}
+                        requestingHospitalId={consent.requestingHospitalId}
+                        sendingHospitalId={consent.sendingHospitalId}
+                        status={consent.status}
+                        dateofRequest={consent.dateofRequest}
+                        reqStartDate={consent.reqStartDate}
+                        reqEndDate={consent.reqEndDate}
+                        reqValidity={consent.reqValidity}
+                        consentStartDate={consent.consentStartDate}
+                        consentEndDate={consent.consentEndDate}
+                        consentValidity={consent.consentValidity}
+                    />
                 ))}
             </Grid>
         </div>

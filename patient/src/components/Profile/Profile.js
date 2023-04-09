@@ -2,7 +2,13 @@ import { Toolbar, TextField } from '@material-ui/core';
 import React from 'react';
 import Header from './Navbar.js';
 import './styles.css';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 const Profile = () => {
+    const user = JSON.parse(localStorage.getItem('patient'));
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
     return (
         <div>
             <Header />

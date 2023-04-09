@@ -1,5 +1,9 @@
-import React from 'react';
-import useState from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { LOGOUT } from '../../constants/actionTypes';
+import decode from 'jwt-decode';
+
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -8,10 +12,19 @@ import { useDispatch } from 'react-redux';
 import { LOGOUT } from '../../constants/actionTypes';
 
 const Header = () => {
-    let ABHA_NUM = 123455959;
-    let name = window.location.href.split('/')[3];
     let navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('patient'))
+    );
+
+    useEffect(() => {
+        const token = user?.token;
+        const decodedToken = decode(token);
+    }, []);
+
+    let ABHA_NUM = 123455959;
 
     const logout = () => {
         navigate('/');
@@ -74,7 +87,7 @@ const Header = () => {
                     marginLeft={8}
                     sx={{ fontWeight: 'bold', fontSize: 16 }}
                 >
-                    {name}, ABHA ID: {ABHA_NUM}
+                    ABHA ID: {ABHA_NUM}
                 </Typography>
             </AppBar>
             {/* <AppBar sx={{background: "#10BB40", minHeight: '70px'}}>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../actions/auth.js';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import './styles.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -28,6 +28,8 @@ const initialState = {
 };
 
 const Register = () => {
+    const { authData, isLoading } = useSelector((state) => state.auth);
+
     const [formData, setFormData] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setConfirmShowPassword] = useState(false);
@@ -72,6 +74,11 @@ const Register = () => {
         width: '150px',
         borderRadius: 50,
     };
+
+    if (authData && !isLoading) {
+        return <Navigate to="/patient" />;
+    }
+
     return (
         <div>
             <Header />

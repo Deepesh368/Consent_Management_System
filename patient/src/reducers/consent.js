@@ -12,7 +12,7 @@ const reducer = (state = { isLoading: true, consents: [] }, action) => {
         case END_LOADING:
             return { ...state, isLoading: false };
         case GET_ALL_CONSENTS:
-            return { ...state, consents: action.payload.data };
+            return { ...state, consents: action.payload };
         case UPDATE_CONSENT:
             return {
                 ...state,
