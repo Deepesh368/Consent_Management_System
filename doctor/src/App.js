@@ -41,6 +41,7 @@ const App = () => {
                         exact
                         element={!user ? <ConsentCreate /> : <Navigate to="/doctor" />}
                     />
+                    
                 </Routes>
             </Container>
         </BrowserRouter>
