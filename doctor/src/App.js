@@ -5,9 +5,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
-import DoctorDashBoard from './components/Dashboard/Dashboard'
-import ConsentDashboard from './components/DashboardConsent/consentDashBoard'
-import ConsentCreate from './components/CreateConsent/CreateConsent'
+import DoctorDashBoard from './components/Dashboard/Dashboard';
+import ConsentDashboard from './components/DashboardConsent/consentDashBoard';
+import ConsentCreate from './components/CreateConsent/CreateConsent';
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem('doctor'));
@@ -23,25 +23,19 @@ const App = () => {
                         exact
                         element={!user ? <Login /> : <Navigate to="/doctor" />}
                     />
+                    <Route path="/doctor" element={<DoctorDashBoard />} />
 
                     <Route
-                        path="/doctor"
+                        path="/doctor/consents"
                         exact
-                        element={!user ? <DoctorDashBoard /> : <Navigate to="/doctor" />}
+                        element={<ConsentDashboard />}
                     />
 
                     <Route
-                        path="/consents"
+                        path="/doctor/create_consent"
                         exact
-                        element={!user ? <ConsentDashboard /> : <Navigate to="/doctor" />}
+                        element={<ConsentCreate />}
                     />
-
-                    <Route
-                        path="/createconsent"
-                        exact
-                        element={!user ? <ConsentCreate /> : <Navigate to="/doctor" />}
-                    />
-                    
                 </Routes>
             </Container>
         </BrowserRouter>

@@ -13,6 +13,9 @@ const initialState = {
 
 const Login = () => {
     const { authData, isLoading } = useSelector((state) => state.auth);
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('hospital'))
+    );
 
     const [formData, setFormData] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
@@ -47,7 +50,7 @@ const Login = () => {
         borderRadius: 50,
     };
 
-    if (authData && !isLoading) {
+    if (user || (!isLoading && authData)) {
         return <Navigate to="/doctor_register" />;
     }
 
