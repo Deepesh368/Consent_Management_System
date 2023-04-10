@@ -1,11 +1,15 @@
 import { Grid, Button, Toolbar } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Navbar.js';
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate, Navigate } from 'react-router-dom';
 
 const DoctorDashBoard = () => {
-    let navigate = useNavigate()
+    let navigate = useNavigate();
+
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('doctor'))
+    );
+
     const btnstyle = {
         '&:hover': { background: '#FF000' },
         backgroundColor: '#20CD51',
@@ -18,6 +22,11 @@ const DoctorDashBoard = () => {
         fontWeight: 'bold',
         fontSize: 20,
     };
+
+    if (!user) {
+        return <Navigate to="/login" />;
+    }
+
     return (
         <div>
             <Header />
@@ -41,8 +50,18 @@ const DoctorDashBoard = () => {
                         Hospital Name
                     </h1>
 
-                    <Button style={btnstyle} onClick={()=>navigate('/createconsent')}>Create Consent</Button>
-                    <Button onClick={()=>navigate('/consents')} style={btnstyle}>View All Consents</Button>
+                    <Button
+                        style={btnstyle}
+                        onClick={() => navigate('/doctor/create_consent')}
+                    >
+                        Create Consent
+                    </Button>
+                    <Button
+                        onClick={() => navigate('/doctor/consents')}
+                        style={btnstyle}
+                    >
+                        View All Consents
+                    </Button>
                 </Grid>
             </div>
         </div>

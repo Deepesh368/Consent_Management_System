@@ -7,14 +7,15 @@ import {
 } from '../constants/actionTypes';
 
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-toast.configure();
+// import 'react-toastify/dist/ReactToastify.css';
+// toast.configure();
 
-export const doctorRegister = (formData) => async (dispatch) => {
+export const doctorRegister = (formData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.doctorRegister(formData);
-        toast('Doctor Registered Successfully!');
+        // toast('Doctor Registered Successfully!');
         dispatch({ type: DOCTOR_REGISTER, data });
+        navigate('/login');
     } catch (error) {
         toast(
             'There was an error in registering the doctor. Please try again.'

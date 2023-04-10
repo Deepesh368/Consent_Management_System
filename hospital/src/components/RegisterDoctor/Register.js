@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { doctorRegister } from '../../actions/index.js';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import './styles.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -30,6 +30,8 @@ const initialState = {
 };
 
 const DoctorRegister = () => {
+    const navigate = useNavigate();
+
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem('hospital'))
     );
@@ -59,7 +61,7 @@ const DoctorRegister = () => {
             alert("Passwords don't match");
         } else {
             // make API call
-            dispatch(doctorRegister(formData));
+            dispatch(doctorRegister(formData, navigate));
         }
     };
 

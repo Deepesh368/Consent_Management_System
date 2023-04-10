@@ -7,9 +7,6 @@ import decode from 'jwt-decode';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { LOGOUT } from '../../constants/actionTypes';
 
 const Header = () => {
     let navigate = useNavigate();

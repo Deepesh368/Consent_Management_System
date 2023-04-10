@@ -3,10 +3,19 @@ import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { LOGOUT } from '../../constants/actionTypes';
 
 const Header = () => {
     let name = window.location.href.split('/')[3];
-    let navigate = useNavigate()
+    let navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const logout = () => {
+        navigate('/');
+        dispatch({ type: LOGOUT });
+    };
+
     return (
         <React.Fragment>
             <AppBar sx={{ background: '#10BB40', minHeight: '70px' }}>
@@ -19,7 +28,7 @@ const Header = () => {
                             background: '#10BB40',
                         }}
                         variant="contained"
-                        onClick={()=>navigate(-1)}
+                        onClick={() => navigate(-1)}
                     >
                         <ArrowBackIcon />{' '}
                     </Button>
@@ -33,7 +42,11 @@ const Header = () => {
 
                     <Typography
                         marginLeft={2}
-                        sx={{ fontWeight: 'bold', marginLeft:'65%' ,fontSize: 16 }}
+                        sx={{
+                            fontWeight: 'bold',
+                            marginLeft: '65%',
+                            fontSize: 16,
+                        }}
                     >
                         Doctor Name
                     </Typography>
@@ -46,6 +59,7 @@ const Header = () => {
                             color: 'white',
                         }}
                         variant="contained"
+                        onClick={logout}
                     >
                         Log out
                     </Button>
