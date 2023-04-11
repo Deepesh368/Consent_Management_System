@@ -1,17 +1,17 @@
 import {
     START_LOADING,
     END_LOADING,
-    GET_HEALTH_RECORDS,
+    GET_PATIENT_RECORD,
 } from '../constants/actionTypes';
 
-const reducer = (state = { isLoading: false, records: [] }, action) => {
+const reducer = (state = { isLoading: false, record: null }, action) => {
     switch (action.type) {
         case START_LOADING:
             return { ...state, isLoading: true };
         case END_LOADING:
             return { ...state, isLoading: false };
-        case GET_HEALTH_RECORDS:
-            return { ...state, records: action.payload };
+        case GET_PATIENT_RECORD:
+            return { ...state, record: action.payload };
         default:
             return state;
     }
