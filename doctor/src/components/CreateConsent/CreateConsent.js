@@ -2,13 +2,39 @@ import { Grid, Button, Toolbar, TextField, Paper } from '@material-ui/core';
 import React, { useState } from 'react';
 import Header from './navbar.js';
 import { useNavigate, Navigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { createConsent } from '../../actions/consent.js';
+
+const initialState = {
+    doctorId: '',
+    patientId: '',
+    requestingHospitalId: '',
+    sendingHospitalId: '',
+    reqStartDate: '',
+    reqEndDate: '',
+    reqValidity: '',
+    status: '',
+    consentValidity: '',
+};
 
 const ConsentCreate = () => {
     let navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem('doctor'))
     );
+
+    const [formData, setFormData] = useState(initialState);
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        dispatch(createConsent(formData, navigate));
+    };
 
     const paperStyle = {
         padding: 40,
@@ -39,7 +65,7 @@ const ConsentCreate = () => {
                 >
                     <div>
                         <Header />
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <Grid style={{ margin: '70px 0 50px  0' }}>
                                 <Paper elevation={10} style={paperStyle}>
                                     <Grid align="center">
@@ -60,22 +86,22 @@ const ConsentCreate = () => {
                                             margin: '3px',
                                             height: '40px',
                                         }}
-                                        name="Patient ID"
-                                        label="   Patient ID"
-                                        fullWidth
-                                        required
-                                    />
-                                    <TextField
-                                        InputProps={{ disableUnderline: true }}
-                                        style={{
-                                            background: 'white',
-                                            borderRadius: 50,
-                                            margin: '4px',
-                                            height: '40px',
-                                            marginBottom: '30px',
-                                        }}
-                                        name="password"
+                                        name="doctorId"
                                         label="   Doctor ID"
+                                        fullWidth
+                                        required
+                                    />
+                                    <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            borderRadius: 50,
+                                            margin: '4px',
+                                            height: '40px',
+                                            marginBottom: '30px',
+                                        }}
+                                        name="patientId"
+                                        label="   Patient ID"
                                         type="text"
                                         fullWidth
                                         required
@@ -89,8 +115,8 @@ const ConsentCreate = () => {
                                             height: '40px',
                                             marginBottom: '30px',
                                         }}
-                                        name="password"
-                                        label="   Hospital ID"
+                                        name="requestingHospitalId"
+                                        label="   Requesting Hospital ID"
                                         type="text"
                                         fullWidth
                                         required
@@ -104,8 +130,8 @@ const ConsentCreate = () => {
                                             height: '40px',
                                             marginBottom: '30px',
                                         }}
-                                        name="password"
-                                        label="   Start Date"
+                                        name="sendingHospitalId"
+                                        label="   Sending Hospital ID"
                                         type="text"
                                         fullWidth
                                         required
@@ -119,8 +145,8 @@ const ConsentCreate = () => {
                                             height: '40px',
                                             marginBottom: '30px',
                                         }}
-                                        name="password"
-                                        label="  End Date"
+                                        name="reqStartDate"
+                                        label="   Request Start Date"
                                         type="text"
                                         fullWidth
                                         required
@@ -134,8 +160,53 @@ const ConsentCreate = () => {
                                             height: '40px',
                                             marginBottom: '30px',
                                         }}
-                                        name="password"
+                                        name="reqEndDate"
+                                        label="  Request End Date"
+                                        type="text"
+                                        fullWidth
+                                        required
+                                    />
+                                    <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            borderRadius: 50,
+                                            margin: '4px',
+                                            height: '40px',
+                                            marginBottom: '30px',
+                                        }}
+                                        name="reqValidity"
+                                        label="   Request Validity"
+                                        type="text"
+                                        fullWidth
+                                        required
+                                    />
+                                    <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            borderRadius: 50,
+                                            margin: '4px',
+                                            height: '40px',
+                                            marginBottom: '30px',
+                                        }}
+                                        name="status"
                                         label="   Status"
+                                        type="text"
+                                        fullWidth
+                                        required
+                                    />
+                                    <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            borderRadius: 50,
+                                            margin: '4px',
+                                            height: '40px',
+                                            marginBottom: '30px',
+                                        }}
+                                        name="consentValidity"
+                                        label="   Consent Validity"
                                         type="text"
                                         fullWidth
                                         required
