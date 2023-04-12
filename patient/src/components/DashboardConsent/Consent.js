@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Card from '@mui/material/CardContent';
 import { CardContent, CardHeader, Typography, Button } from '@material-ui/core';
 import Paper from '@mui/material/Paper';
+import { SET_UPDATE_CONSENT } from '../../constants/actionTypes';
+import { useDispatch } from 'react-redux';
+
+const updateData = {
+    consentId: '',
+    status: '',
+    startDate: '',
+    endDate: '',
+    validity: '',
+};
 
 const Consent = (props) => {
     let navigate = useNavigate();
+    const dispatch = useDispatch();
 
-    const goToUpdateForm = () => {
+    const goToUpdateForm = async () => {
+        await dispatch({ type: SET_UPDATE_CONSENT, payload: updateData });
         navigate(`/patient/consents/${props.requestId}`);
     };
+
+    const [updateData, setUpdateData] = useState({
+        consentId: props.requestId,
+        status: props.status,
+        startDate: props.reqStartDate,
+        endDate: props.reqEndDate,
+        validity: props.consentValidity,
+    });
 
     return (
         <div>

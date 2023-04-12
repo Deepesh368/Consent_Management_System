@@ -47,12 +47,6 @@ const App = () => {
                         path="patient/consents/:id"
                         element={<EditConsent />}
                     />
-
-                    <Route
-                        path="/editconsent"
-                        exact
-                        element={!user ? <EditConsent /> : <Navigate to="/patient" />}
-                    />
                 </Routes>
             </Container>
         </BrowserRouter>
