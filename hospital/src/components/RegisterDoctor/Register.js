@@ -189,7 +189,7 @@ const DoctorRegister = () => {
                                 margin: '4px',
                                 height: '40px',
                             }}
-                            label="   Password"
+                            placeholder="   Password"
                             name="password"
                             type={showPassword ? 'text' : 'password'}
                             fullWidth
@@ -225,7 +225,7 @@ const DoctorRegister = () => {
                                 margin: '4px',
                                 height: '40px',
                             }}
-                            label="   Confirm Password"
+                            placeholder="   Confirm Password"
                             name="confirmPassword"
                             type={showConfirmPassword ? 'text' : 'password'}
                             fullWidth
