@@ -15,13 +15,13 @@ const Header = () => {
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem('patient'))
     );
+    const [abhaId, setAbhaId] = useState('NULL');
 
     useEffect(() => {
         const token = user?.token;
         const decodedToken = decode(token);
+        setAbhaId(decodedToken?.id);
     }, []);
-
-    let ABHA_NUM = 123455959;
 
     const logout = () => {
         navigate('/');
@@ -84,7 +84,7 @@ const Header = () => {
                     marginLeft={8}
                     sx={{ fontWeight: 'bold', fontSize: 16 }}
                 >
-                    ABHA ID: {ABHA_NUM}
+                    ABHA ID: {abhaId}
                 </Typography>
             </AppBar>
             {/* <AppBar sx={{background: "#10BB40", minHeight: '70px'}}>

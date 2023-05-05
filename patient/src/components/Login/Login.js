@@ -61,16 +61,17 @@ const Login = () => {
                                 Log In
                             </h2>
                         </Grid>
+
                         <TextField
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
                                 borderRadius: 50,
-                                margin: '3px',
+                                margin: '4px',
                                 height: '40px',
                             }}
                             name="email"
-                            label="   Enter Email"
+                            placeholder="   Email"
                             fullWidth
                             required
                             onChange={handleChange}
@@ -82,16 +83,14 @@ const Login = () => {
                                 borderRadius: 50,
                                 margin: '4px',
                                 height: '40px',
-                                marginBottom: '30px',
                             }}
                             name="password"
-                            label="   Enter password"
+                            placeholder="   Password"
                             type="password"
                             fullWidth
                             required
                             onChange={handleChange}
                         />
-
                         <Link
                             href="#"
                             style={{
@@ -103,7 +102,7 @@ const Login = () => {
                             Forgot password ?
                         </Link>
                         <Link
-                            href="#"
+                            href="/register"
                             style={{
                                 color: 'white',
                                 margin: '0 0 0 145px',

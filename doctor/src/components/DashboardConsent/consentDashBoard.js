@@ -18,7 +18,7 @@ const ConsentDashBoard = () => {
         const token = user?.token;
         if (token) {
             const decodedToken = decode(token);
-            dispatch(getAllConsents(152));
+            dispatch(getAllConsents(decodedToken.id));
         }
     }, []);
 

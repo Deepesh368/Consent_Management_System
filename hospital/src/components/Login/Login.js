@@ -74,7 +74,7 @@ const Login = () => {
                                 height: '40px',
                             }}
                             name="email"
-                            label="   Enter Email"
+                            placeholder="   Enter Email"
                             fullWidth
                             required
                             onChange={handleChange}
@@ -89,33 +89,12 @@ const Login = () => {
                                 marginBottom: '30px',
                             }}
                             name="password"
-                            label="   Enter password"
+                            placeholder="   Enter password"
                             type="password"
                             fullWidth
                             required
                             onChange={handleChange}
                         />
-
-                        <Link
-                            href="#"
-                            style={{
-                                color: 'white',
-                                textDecoration: 'underline',
-                                fontStyle: 'italic',
-                            }}
-                        >
-                            Forgot password ?
-                        </Link>
-                        <Link
-                            href="#"
-                            style={{
-                                color: 'white',
-                                margin: '0 0 0 145px',
-                                fontWeight: 'bold',
-                            }}
-                        >
-                            Sign Up
-                        </Link>
                     </Paper>
                 </Grid>
                 <Button

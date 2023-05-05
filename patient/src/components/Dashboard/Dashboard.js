@@ -16,7 +16,8 @@ const PatientDashBoard = () => {
         const token = user?.token;
         if (token) {
             const decodedToken = decode(token);
-            setName(decodedToken?.sub);
+            console.log(decodedToken);
+            setName(decodedToken?.name);
         }
     }, []);
 

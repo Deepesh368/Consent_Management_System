@@ -90,6 +90,7 @@ const Register = () => {
                                 Register
                             </h2>
                         </Grid>
+
                         <TextField
                             InputProps={{ disableUnderline: true }}
                             style={{
@@ -99,7 +100,7 @@ const Register = () => {
                                 height: '40px',
                             }}
                             name="name"
-                            label="Name"
+                            placeholder="   Name"
                             fullWidth
                             required
                             onChange={handleChange}
@@ -113,7 +114,7 @@ const Register = () => {
                                 height: '40px',
                             }}
                             name="phone"
-                            label="   Phone Number"
+                            placeholder="   Phone Number"
                             type="number"
                             fullWidth
                             required
@@ -140,7 +141,7 @@ const Register = () => {
                                 margin: '4px',
                                 height: '40px',
                             }}
-                            label="   Email"
+                            placeholder="   Email"
                             name="email"
                             fullWidth
                             required
@@ -171,8 +172,8 @@ const Register = () => {
                                 margin: '4px',
                                 height: '40px',
                             }}
-                            label="   Password"
                             name="password"
+                            placeholder="   Password"
                             type={showPassword ? 'text' : 'password'}
                             fullWidth
                             required
@@ -207,7 +208,7 @@ const Register = () => {
                                 margin: '4px',
                                 height: '40px',
                             }}
-                            label="   Confirm Password"
+                            placeholder="   Confirm Password"
                             name="confirmPassword"
                             type={showConfirmPassword ? 'text' : 'password'}
                             fullWidth
@@ -215,7 +216,7 @@ const Register = () => {
                             onChange={handleChange}
                         />
                         <Link
-                            href="#"
+                            href="/login"
                             style={{
                                 color: 'white',
                                 textDecoration: 'underline',
