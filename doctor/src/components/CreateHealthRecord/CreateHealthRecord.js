@@ -1,41 +1,24 @@
 import { Grid, Button, Toolbar, TextField, Paper } from '@material-ui/core';
-import React, { useState, useEffect } from 'react';
-import Header from './navbar.js';
+import React, { useState } from 'react';
+import Header from './Navbar.js';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { createConsent } from '../../actions/consent.js';
-import decode from 'jwt-decode';
+import { createHealthRecord } from '../../actions/healthRecord.js';
+import DropdownTextField from './TextBox.js';
+import SeverityBox from './SeverityBox.js';
+import FileUploadForm from './UploadFile.js';
 
 const initialState = {
-    doctorId: '',
     patientId: '',
-    requestingHospitalId: '',
-    sendingHospitalId: '',
-    reqStartDate: '',
-    reqEndDate: '',
-    reqValidity: '',
-    status: '',
-    consentValidity: '',
-    record_type: '',
+    dateOfVisit: '',
+    recordType: '',
+    reportDetails: '',
+    severity: '',
 };
 
-const ConsentCreate = () => {
+const HealthRecordCreate = () => {
     let navigate = useNavigate();
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        const token = user?.token;
-        if (token) {
-            const decodedToken = decode(token);
-            // console.log(decodedToken);
-            setFormData({
-                ...formData,
-                doctorId: `${decodedToken.id}`,
-                requestingHospitalId: decodedToken.hospital_name,
-            });
-            // console.log(formData);
-        }
-    }, []);
 
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem('doctor'))
@@ -49,7 +32,8 @@ const ConsentCreate = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(createConsent(formData, navigate));
+        // console.log(formData);
+        dispatch(createHealthRecord(formData, navigate));
     };
 
     const paperStyle = {
@@ -91,7 +75,7 @@ const ConsentCreate = () => {
                                                 fontWeight: 'bold',
                                             }}
                                         >
-                                            Create Consent
+                                            Create Health Record
                                         </h2>
                                     </Grid>
 
@@ -108,8 +92,48 @@ const ConsentCreate = () => {
                                         label="   Patient ID"
                                         type="text"
                                         fullWidth
-                                        onChange={handleChange}
                                         required
+                                        onChange={handleChange}
+                                    />
+                                    <label style={{ color: 'white' }}>
+                                        Date of Visit:
+                                    </label>
+                                    <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            borderRadius: 50,
+                                            margin: '4px',
+                                            height: '40px',
+                                            marginBottom: '30px',
+                                            '& .MuiPickersCalendar-weekDayLabel':
+                                                {
+                                                    color: 'white',
+                                                },
+                                        }}
+                                        name="dateOfVisit"
+                                        label=""
+                                        placeholder=""
+                                        type="date"
+                                        fullWidth
+                                        required
+                                        onChange={handleChange}
+                                    />
+                                    <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            borderRadius: 50,
+                                            margin: '4px',
+                                            height: '40px',
+                                            marginBottom: '30px',
+                                        }}
+                                        name="recordType"
+                                        label="   Record Type"
+                                        type="text"
+                                        fullWidth
+                                        required
+                                        onChange={handleChange}
                                     />
 
                                     <TextField
@@ -121,13 +145,46 @@ const ConsentCreate = () => {
                                             height: '40px',
                                             marginBottom: '30px',
                                         }}
-                                        name="sendingHospitalId"
-                                        label="   Sending Hospital ID"
+                                        name="reportDetails"
+                                        label="   Report Details"
                                         type="text"
                                         fullWidth
-                                        onChange={handleChange}
                                         required
+                                        onChange={handleChange}
                                     />
+
+                                    {/* <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            borderRadius: 50,
+                                            margin: '4px',
+                                            height: '40px',
+                                            marginBottom: '30px',
+                                        }}
+                                        name="recordType"
+                                        label="  Record Type"
+                                        type="text"
+                                        fullWidth
+                                        required
+                                    /> */}
+                                    {/* <DropdownTextField /> */}
+                                    {/* <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            margin: '4px',
+                                            height: '100px',
+                                            marginBottom: '30px',
+                                        }}
+                                        name="reportDetails"
+                                        label="   Report details"
+                                        type="text"
+                                        fullWidth
+                                        required
+                                    /> */}
+                                    {/* <SeverityBox /> */}
+                                    {/* <FileUploadForm /> */}
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
@@ -137,92 +194,12 @@ const ConsentCreate = () => {
                                             height: '40px',
                                             marginBottom: '30px',
                                         }}
-                                        name="reqStartDate"
-                                        label="   Request Start Date"
+                                        name="severity"
+                                        label="   Severity"
                                         type="text"
                                         fullWidth
-                                        onChange={handleChange}
                                         required
-                                    />
-                                    <TextField
-                                        InputProps={{ disableUnderline: true }}
-                                        style={{
-                                            background: 'white',
-                                            borderRadius: 50,
-                                            margin: '4px',
-                                            height: '40px',
-                                            marginBottom: '30px',
-                                        }}
-                                        name="reqEndDate"
-                                        label="  Request End Date"
-                                        type="text"
-                                        fullWidth
                                         onChange={handleChange}
-                                        required
-                                    />
-                                    <TextField
-                                        InputProps={{ disableUnderline: true }}
-                                        style={{
-                                            background: 'white',
-                                            borderRadius: 50,
-                                            margin: '4px',
-                                            height: '40px',
-                                            marginBottom: '30px',
-                                        }}
-                                        name="reqValidity"
-                                        label="   Request Validity"
-                                        type="text"
-                                        fullWidth
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                    <TextField
-                                        InputProps={{ disableUnderline: true }}
-                                        style={{
-                                            background: 'white',
-                                            borderRadius: 50,
-                                            margin: '4px',
-                                            height: '40px',
-                                            marginBottom: '30px',
-                                        }}
-                                        name="status"
-                                        label="   Status"
-                                        type="text"
-                                        fullWidth
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                    <TextField
-                                        InputProps={{ disableUnderline: true }}
-                                        style={{
-                                            background: 'white',
-                                            borderRadius: 50,
-                                            margin: '4px',
-                                            height: '40px',
-                                            marginBottom: '30px',
-                                        }}
-                                        name="consentValidity"
-                                        label="   Consent Validity"
-                                        type="text"
-                                        fullWidth
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                    <TextField
-                                        InputProps={{ disableUnderline: true }}
-                                        style={{
-                                            background: 'white',
-                                            borderRadius: 50,
-                                            margin: '4px',
-                                            height: '40px',
-                                            marginBottom: '30px',
-                                        }}
-                                        name="record_type"
-                                        label="   Record Type"
-                                        type="text"
-                                        fullWidth
-                                        onChange={handleChange}
-                                        required
                                     />
                                 </Paper>
                             </Grid>
@@ -232,7 +209,7 @@ const ConsentCreate = () => {
                                 variant="contained"
                                 style={btnstyle}
                             >
-                                Create Consent
+                                Create Record
                             </Button>
                         </form>
                     </div>
@@ -242,4 +219,4 @@ const ConsentCreate = () => {
     );
 };
 
-export default ConsentCreate;
+export default HealthRecordCreate;

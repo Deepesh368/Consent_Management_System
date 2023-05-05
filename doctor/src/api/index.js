@@ -17,7 +17,7 @@ export const logIn = (formData) =>
 
 //Consent Specific
 export const getAllConsents = (doctor_id) =>
-    API.get(`/api/v1/hospital-doctor/get-consent/${doctor_id}`);
+    API.get(`/api/v1/hospital-doctor/get-consent`);
 
 export const createConsent = (formData) =>
     API.post('/api/v1/hospital-doctor/create-consent', formData);
@@ -25,3 +25,6 @@ export const createConsent = (formData) =>
 //Health record Specific
 export const getRecordByConsentID = (consent_id) =>
     API.get(`/api/v1/hospital-doctor/get-patient-data/${consent_id}`);
+
+export const createHealthRecord = (formData) =>
+    API.post('/api/v1/hospital-records/add', formData);

@@ -71,7 +71,7 @@ const Login = () => {
                                 margin: '4px',
                                 height: '40px',
                             }}
-                            name="Email"
+                            name="email"
                             placeholder="   Email"
                             fullWidth
                             required
@@ -87,7 +87,7 @@ const Login = () => {
                             }}
                             name="password"
                             placeholder="   Password"
-                            type='password'
+                            type="password"
                             fullWidth
                             required
                             onChange={handleChange}
@@ -103,7 +103,7 @@ const Login = () => {
                             Forgot password ?
                         </Link>
                         <Link
-                            href="#"
+                            href="/register"
                             style={{
                                 color: 'white',
                                 margin: '0 0 0 145px',

@@ -90,6 +90,7 @@ const Register = () => {
                                 Register
                             </h2>
                         </Grid>
+
                         <TextField
                             InputProps={{ disableUnderline: true }}
                             style={{
@@ -215,7 +216,7 @@ const Register = () => {
                             onChange={handleChange}
                         />
                         <Link
-                            href="#"
+                            href="/login"
                             style={{
                                 color: 'white',
                                 textDecoration: 'underline',

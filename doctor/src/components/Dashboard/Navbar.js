@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { LOGOUT } from '../../constants/actionTypes';
+import decode from 'jwt-decode';
 
 const Header = () => {
-    let name = window.location.href.split('/')[3];
     let navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('doctor'))
+    );
+    const [name, setName] = useState('NULL');
+
+    useEffect(() => {
+        const token = user?.token;
+        if (token) {
+            const decodedToken = decode(token);
+            setName(decodedToken?.name);
+        }
+    }, []);
 
     const logout = async () => {
         await dispatch({ type: LOGOUT });
@@ -48,7 +61,7 @@ const Header = () => {
                             fontSize: 16,
                         }}
                     >
-                        Doctor Name
+                        {name}
                     </Typography>
                     <Button
                         sx={{

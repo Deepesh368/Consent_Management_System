@@ -12,3 +12,5 @@ export const CREATE_CONSENT = 'CREATE_CONSENT';
 
 //Health records specific
 export const GET_PATIENT_RECORD = 'GET_PATIENT_RECORD';
+
+export const CREATE_HEALTH_RECORD = 'CREATE_HEALTH_RECORD';

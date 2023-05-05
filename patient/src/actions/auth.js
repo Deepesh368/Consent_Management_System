@@ -4,6 +4,7 @@ import { AUTH, START_LOADING, END_LOADING } from '../constants/actionTypes';
 export const login = (formData, navigate) => async (dispatch) => {
     try {
         const { data } = await api.logIn(formData);
+        console.log(formData);
         dispatch({ type: START_LOADING });
         dispatch({ type: AUTH, data });
         dispatch({ type: END_LOADING });

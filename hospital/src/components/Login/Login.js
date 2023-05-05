@@ -95,27 +95,6 @@ const Login = () => {
                             required
                             onChange={handleChange}
                         />
-
-                        <Link
-                            href="#"
-                            style={{
-                                color: 'white',
-                                textDecoration: 'underline',
-                                fontStyle: 'italic',
-                            }}
-                        >
-                            Forgot password ?
-                        </Link>
-                        <Link
-                            href="#"
-                            style={{
-                                color: 'white',
-                                margin: '0 0 0 145px',
-                                fontWeight: 'bold',
-                            }}
-                        >
-                            Sign Up
-                        </Link>
                     </Paper>
                 </Grid>
                 <Button

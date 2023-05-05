@@ -10,7 +10,6 @@ import { getAllRecords } from '../../actions/healthRecord.js';
 import { TextField, Button } from '@mui/material';
 
 const initialState = {
-    patient_id: '',
     hospital_id: '',
 };
 
@@ -21,12 +20,13 @@ const HealthRecords = () => {
         JSON.parse(localStorage.getItem('patient'))
     );
     const [formData, setFormData] = useState(initialState);
+    const [patientId, setPatientId] = useState('NULL');
 
     useEffect(() => {
         const token = user?.token;
         if (token) {
             const decodedToken = decode(token);
-            dispatch(getAllRecords(152, 1));
+            setPatientId(decodedToken?.id);
         }
     }, []);
 
@@ -35,7 +35,7 @@ const HealthRecords = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const { patient_id, hospital_id } = formData;
-        dispatch(getAllRecords(patient_id, hospital_id));
+        dispatch(getAllRecords(patientId, hospital_id));
     };
 
     const handleChange = (e) => {
@@ -51,20 +51,6 @@ const HealthRecords = () => {
             <Header />{' '}
             <Grid style={{ margin: '10% 0 5% 0' }}>
                 <form onSubmit={handleSubmit}>
-                    <TextField
-                        InputProps={{ disableUnderline: true }}
-                        style={{
-                            background: 'white',
-                            borderRadius: 50,
-                            margin: '3px',
-                            height: '40px',
-                        }}
-                        name="patient_id"
-                        label="Patient id (152)"
-                        fullWidth
-                        required
-                        onChange={handleChange}
-                    />
                     <TextField
                         InputProps={{ disableUnderline: true }}
                         style={{
@@ -91,7 +77,7 @@ const HealthRecords = () => {
                             height: '40px',
                         }}
                     >
-                        send
+                        Get Health Records
                     </Button>
                 </form>
             </Grid>

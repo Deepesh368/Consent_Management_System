@@ -62,6 +62,13 @@ const DoctorDashBoard = () => {
                     >
                         View All Consents
                     </Button>
+
+                    <Button
+                        onClick={() => navigate('/doctor/create_record')}
+                        style={btnstyle}
+                    >
+                        Create Health Record for Patient
+                    </Button>
                 </Grid>
             </div>
         </div>

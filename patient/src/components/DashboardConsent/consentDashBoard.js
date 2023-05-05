@@ -13,14 +13,16 @@ const ConsentDashBoard = () => {
     const [user, setUser] = useState(
         JSON.parse(localStorage.getItem('patient'))
     );
-
+    const [name, setName] = useState('NULL');
+    const [abhaId, setAbhaId] = useState('NULL');
     const [toUpdate, setToUpdate] = useState(false);
 
     useEffect(() => {
         const token = user?.token;
         if (token) {
             const decodedToken = decode(token);
-            dispatch(getAllConsents(154));
+
+            dispatch(getAllConsents(decodedToken.id));
         }
     }, []);
 
