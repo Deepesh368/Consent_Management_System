@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-import { Grid, Paper, TextField, Button, Link } from '@material-ui/core';
+import { Grid, Paper, TextField, Button, Link, InputAdornment, IconButton, } from '@material-ui/core';
 import Header from './Header.js';
 import { login } from '../../actions/index.js';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 
 const initialState = {
     email: '',
@@ -21,7 +22,6 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
     const handleShowPassword = () =>
         setShowPassword((prevShowPassword) => !prevShowPassword);
 
@@ -69,28 +69,43 @@ const Login = () => {
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
-                                margin: '3px',
-                                height: '40px',
+                                margin: '4px',
+                                marginBottom: '30px',
                             }}
                             name="email"
                             placeholder="   Enter Email"
                             fullWidth
                             required
+                            variant="outlined"
                             onChange={handleChange}
                         />
                         <TextField
-                            InputProps={{ disableUnderline: true }}
+                            type={showPassword ? 'text' : 'password'}
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            onClick={handleShowPassword}
+                                        >
+                                            {showPassword ? (
+                                                <Visibility />
+                                            ) : (
+                                                <VisibilityOff />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                                disableUnderline: true,
+                            }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
                                 marginBottom: '30px',
                             }}
                             name="password"
                             placeholder="   Enter password"
-                            type="password"
+                            // type="password"
+                            variant="outlined"
                             fullWidth
                             required
                             onChange={handleChange}

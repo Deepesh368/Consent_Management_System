@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { Grid, Paper, TextField, Button, Link } from '@material-ui/core';
+import { Grid, Paper, TextField, Button, Link, InputAdornment, IconButton } from '@material-ui/core';
 import Header from './Header.js';
 import { login } from '../../actions/auth.js';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
+
 
 const initialState = {
     email: '',
@@ -57,52 +59,48 @@ const Login = () => {
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
-                                margin: '3px',
-                                height: '40px',
+                                margin: '4px',
+                                marginBottom: '30px',
                             }}
                             name="email"
                             placeholder="   Enter Email"
                             fullWidth
                             required
+                            variant="outlined"
                             onChange={handleChange}
                         />
                         <TextField
-                            InputProps={{ disableUnderline: true }}
+                            type={showPassword ? 'text' : 'password'}
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            onClick={handleShowPassword}
+                                        >
+                                            {showPassword ? (
+                                                <Visibility />
+                                            ) : (
+                                                <VisibilityOff />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                                disableUnderline: true,
+                            }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
                                 marginBottom: '30px',
                             }}
                             name="password"
                             placeholder="   Enter password"
-                            type="password"
+                            // type="password"
+                            variant="outlined"
                             fullWidth
                             required
                             onChange={handleChange}
                         />
-                        <Link
-                            href="#"
-                            style={{
-                                color: 'white',
-                                textDecoration: 'underline',
-                                fontStyle: 'italic',
-                            }}
-                        >
-                            Forgot password ?
-                        </Link>
-                        <Link
-                            href="#"
-                            style={{
-                                color: 'white',
-                                margin: '0 0 0 145px',
-                                fontWeight: 'bold',
-                            }}
-                        >
-                            Sign Up
-                        </Link>
+
                     </Paper>
                 </Grid>
                 <Button
