@@ -70,7 +70,6 @@ const Header = () => {
                 >
                     Hospital Name
                 </Typography>
-                <Toolbar></Toolbar>
             </AppBar>
             {/* <AppBar sx={{background: "#10BB40", minHeight: '70px'}}>
                 <Toolbar>

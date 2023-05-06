@@ -56,13 +56,13 @@ const ConsentCreate = () => {
         padding: 40,
         height: '45%',
         width: 400,
-        marginTop: "7%",
+        marginTop: "1%",
         marginLeft:"35%",
         backgroundColor: '#20CD51',
     };
     const btnstyle = {
         backgroundColor: '#20CD51',
-        left: '45%',
+        marginLeft: '42%',
         width: '200px',
         borderRadius: 50,
     };
@@ -85,24 +85,21 @@ const ConsentCreate = () => {
                         <form onSubmit={handleSubmit}>
                             <Grid style={{ margin: '70px 0 50px  0' }}>
                                 <Paper elevation={10} style={paperStyle}>
-                                    <Grid align="center">
-                                        <h2
-                                            style={{
-                                                color: 'white',
-                                                fontWeight: 'bold',
-                                            }}
-                                        >
-                                            Create Consent
-                                        </h2>
-                                    </Grid>
+                                    <h2
+                                        style={{
+                                            marginLeft: '25%',
+                                            color: 'white',
+                                            fontWeight: 'bold',
+                                        }}
+                                    >
+                                        Create Consent
+                                    </h2>
 
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
                                         }}
                                         name="patientId"
@@ -111,9 +108,10 @@ const ConsentCreate = () => {
                                         fullWidth
                                         onChange={handleChange}
                                         required
+                                        variant="outlined"
                                     />
 
-                                    <TextField
+                                    {/* <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
@@ -128,14 +126,12 @@ const ConsentCreate = () => {
                                         fullWidth
                                         onChange={handleChange}
                                         required
-                                    />
+                                    /> */}
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
                                         }}
                                         name="reqStartDate"
@@ -144,14 +140,13 @@ const ConsentCreate = () => {
                                         fullWidth
                                         onChange={handleChange}
                                         required
+                                        variant="outlined"
                                     />
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
                                         }}
                                         name="reqEndDate"
@@ -160,14 +155,13 @@ const ConsentCreate = () => {
                                         fullWidth
                                         onChange={handleChange}
                                         required
+                                        variant="outlined"
                                     />
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
                                         }}
                                         name="reqValidity"
@@ -176,14 +170,13 @@ const ConsentCreate = () => {
                                         fullWidth
                                         onChange={handleChange}
                                         required
+                                        variant="outlined"
                                     />
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
                                         }}
                                         name="status"
@@ -192,14 +185,13 @@ const ConsentCreate = () => {
                                         fullWidth
                                         onChange={handleChange}
                                         required
+                                        variant="outlined"
                                     />
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
                                         }}
                                         name="consentValidity"
@@ -208,15 +200,14 @@ const ConsentCreate = () => {
                                         fullWidth
                                         onChange={handleChange}
                                         required
+                                        variant="outlined"
                                     />
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
-                                            marginBottom: '30px',
+                                            marginBottom: '1px',
                                         }}
                                         name="record_type"
                                         label="   Record Type"
@@ -224,6 +215,7 @@ const ConsentCreate = () => {
                                         fullWidth
                                         onChange={handleChange}
                                         required
+                                        variant="outlined"
                                     />
                                 </Paper>
                             </Grid>

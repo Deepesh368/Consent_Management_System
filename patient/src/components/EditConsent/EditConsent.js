@@ -41,7 +41,8 @@ const EditConsent = () => {
         padding: 40,
         height: '45%',
         width: 400,
-        margin: '50px auto',
+        marginTop: '15%',
+        marginLeft: '35%',
         backgroundColor: '#20CD51',
     };
     const btnstyle = {
@@ -59,7 +60,6 @@ const EditConsent = () => {
                     alignContent="center"
                 >
                     <div>
-                        <Header />
                         <form onSubmit={handleSubmit}>
                             <Grid style={{ margin: '70px 0 50px  0' }}>
                                 <Paper elevation={10} style={paperStyle}>
