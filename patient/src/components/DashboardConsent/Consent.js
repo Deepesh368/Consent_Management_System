@@ -29,7 +29,7 @@ const Consent = (props) => {
         status: props.status,
         startDate: props.reqStartDate,
         endDate: props.reqEndDate,
-        validity: props.consentValidity,
+        validity: props.reqValidity,
     });
 
     // useEffect(() => {
@@ -55,9 +55,9 @@ const Consent = (props) => {
                                     requesting hospital:
                                     {props.requestingHospitalId}
                                 </h3>
-                                <h3>
+                                {/* <h3>
                                     sending Hospital: {props.sendingHospitalId}
-                                </h3>
+                                </h3> */}
                                 <h3>status: {props.status}</h3>
                                 <h3>
                                     requested start date:{' '}
