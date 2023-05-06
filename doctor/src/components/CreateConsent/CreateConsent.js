@@ -56,7 +56,8 @@ const ConsentCreate = () => {
         padding: 40,
         height: '45%',
         width: 400,
-        margin: '50px auto',
+        marginTop: "7%",
+        marginLeft:"35%",
         backgroundColor: '#20CD51',
     };
     const btnstyle = {
