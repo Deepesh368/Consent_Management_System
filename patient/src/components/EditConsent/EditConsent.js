@@ -49,7 +49,6 @@ const EditConsent = () => {
     return (
         <div>
             <Header />
-            <Toolbar />
             <div style={{}}>
                 <Grid
                     style={{ margin: '80px 0 20px  0' }}

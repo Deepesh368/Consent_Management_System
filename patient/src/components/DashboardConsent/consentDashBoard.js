@@ -52,7 +52,6 @@ const ConsentDashBoard = () => {
                         requestingHospitalId={consent.requestingHospitalId}
                         sendingHospitalId={consent.sendingHospitalId}
                         status={consent.status}
-                        dateofRequest={consent.dateofRequest}
                         reqStartDate={consent.reqStartDate}
                         reqEndDate={consent.reqEndDate}
                         reqValidity={consent.reqValidity}
