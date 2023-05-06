@@ -24,7 +24,9 @@ export const createConsent = (formData) =>
 
 //Health record Specific
 export const getRecordByConsentID = (consent_id) =>
-    API.get(`/api/v1/hospital-doctor/get-patient-data/${consent_id}`);
+    API.get(
+        `/api/v1/hospital-doctor/get-patient-data?consent_id=${consent_id}`
+    );
 
 export const createHealthRecord = (formData) =>
     API.post('/api/v1/hospital-records/add', formData);
