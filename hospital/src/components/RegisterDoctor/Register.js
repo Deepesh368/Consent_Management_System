@@ -68,7 +68,7 @@ const DoctorRegister = () => {
     const paperStyle = {
         padding: 20,
         height: '40%',
-        width: 350,
+        width: 500,
         margin: '20px auto',
         backgroundColor: '#20CD51',
     };
@@ -87,7 +87,7 @@ const DoctorRegister = () => {
         <div>
             <Header />
             <form onSubmit={handleSubmit}>
-                <Grid style={{ margin: '10% 0 5% 0' }}>
+                <Grid style={{ margin: '10% 0 3% 0' }}>
                     <Paper elevation={10} style={paperStyle}>
                         <Grid align="center">
                             <h2 style={{ color: 'white', fontWeight: 'bold' }}>
@@ -98,26 +98,26 @@ const DoctorRegister = () => {
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
-                                margin: '3px',
-                                height: '40px',
+                                margin: '4px',
+                                marginBottom: '25px',
                             }}
                             name="name"
                             placeholder="   Name"
                             fullWidth
                             required
                             onChange={handleChange}
+                            variant="outlined"
                         />
                         <TextField
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
                             name="departmant"
                             placeholder="   Department"
+                            variant="outlined"
                             fullWidth
                             required
                             onChange={handleChange}
@@ -126,43 +126,43 @@ const DoctorRegister = () => {
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
                             name="position"
                             placeholder="   Position"
                             fullWidth
                             required
                             onChange={handleChange}
+                            variant="outlined"
                         />
                         <TextField
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
                             name="specialization"
                             placeholder="   Specialization"
                             fullWidth
                             required
                             onChange={handleChange}
+                            variant="outlined"
                         />
                         <TextField
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
                             name="email"
                             placeholder="   Email"
                             fullWidth
                             required
                             onChange={handleChange}
+                            variant="outlined"
                         />
                         <TextField
                             InputProps={{
@@ -185,9 +185,8 @@ const DoctorRegister = () => {
                             }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
                             placeholder="   Password"
                             name="password"
@@ -195,6 +194,7 @@ const DoctorRegister = () => {
                             fullWidth
                             required
                             onChange={handleChange}
+                            variant="outlined"
                         />
                         <TextField
                             InputProps={{
@@ -221,9 +221,8 @@ const DoctorRegister = () => {
                             }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
                             placeholder="   Confirm Password"
                             name="confirmPassword"
@@ -231,6 +230,7 @@ const DoctorRegister = () => {
                             fullWidth
                             required
                             onChange={handleChange}
+                            variant="outlined"
                         />
                     </Paper>
                 </Grid>

@@ -64,13 +64,14 @@ const Register = () => {
     const paperStyle = {
         padding: 20,
         height: '40%',
-        width: 350,
-        margin: '20px auto',
+        width: 450,
+        marginBottom: '1%',
+        marginLeft:"35%",
         backgroundColor: '#20CD51',
     };
     const btnstyle = {
         backgroundColor: '#20CD51',
-        left: '45%',
+        left: '43%',
         width: '150px',
         borderRadius: 50,
     };
@@ -83,7 +84,7 @@ const Register = () => {
         <div>
             <Header />
             <form onSubmit={handleSubmit}>
-                <Grid style={{ margin: '10% 0 5% 0' }}>
+                <Grid style={{ margin: '10% 0 2% 0' }}>
                     <Paper elevation={10} style={paperStyle}>
                         <Grid align="center">
                             <h2 style={{ color: 'white', fontWeight: 'bold' }}>
@@ -95,29 +96,29 @@ const Register = () => {
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
-                                margin: '3px',
-                                height: '40px',
+                                margin: '4px',
+                                marginBottom: '25px',
                             }}
                             name="name"
                             placeholder="   Name"
                             fullWidth
                             required
+                            variant="outlined"
                             onChange={handleChange}
                         />
                         <TextField
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
                             name="phone"
                             placeholder="   Phone Number"
                             type="number"
                             fullWidth
                             required
+                            variant="outlined"
                             onChange={handleChange}
                         />
                         {/* <TextField
@@ -137,14 +138,14 @@ const Register = () => {
                             InputProps={{ disableUnderline: true }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
                             placeholder="   Email"
                             name="email"
                             fullWidth
                             required
+                            variant="outlined"
                             onChange={handleChange}
                         />
                         <TextField
@@ -168,15 +169,15 @@ const Register = () => {
                             }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
                             name="password"
                             placeholder="   Password"
                             type={showPassword ? 'text' : 'password'}
                             fullWidth
                             required
+                            variant="outlined"
                             onChange={handleChange}
                         />
                         <TextField
@@ -204,10 +205,10 @@ const Register = () => {
                             }}
                             style={{
                                 background: 'white',
-                                borderRadius: 50,
                                 margin: '4px',
-                                height: '40px',
+                                marginBottom: '25px',
                             }}
+                            variant="outlined"
                             placeholder="   Confirm Password"
                             name="confirmPassword"
                             type={showConfirmPassword ? 'text' : 'password'}

@@ -42,6 +42,15 @@ const ConsentCreate = () => {
     );
 
     const [formData, setFormData] = useState(initialState);
+    const [focus, setFocused] = useState(false);
+    const [hasValue, setHasValue] = useState(false);
+    const onFocus = () => setFocused(true);
+    const onBlur = () => setFocused(false);
+
+    const [focus1, setFocused1] = useState(false);
+    const [hasValue1, setHasValue1] = useState(false);
+    const onFocus1 = () => setFocused1(true);
+    const onBlur1 = () => setFocused1(false);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -70,6 +79,7 @@ const ConsentCreate = () => {
     if (!user) {
         return <Navigate to="/login" />;
     }
+
 
     return (
         <div>
@@ -128,6 +138,8 @@ const ConsentCreate = () => {
                                         required
                                     /> */}
                                     <TextField
+                                        onFocus={onFocus}
+                                        onBlur={onBlur}
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
@@ -136,22 +148,29 @@ const ConsentCreate = () => {
                                         }}
                                         name="reqStartDate"
                                         label="   Request Start Date"
-                                        type="text"
+                                        type={
+                                            hasValue || focus ? 'date' : 'text'
+                                        }
                                         fullWidth
                                         onChange={handleChange}
                                         required
                                         variant="outlined"
                                     />
                                     <TextField
+                                        onFocus={onFocus1}
+                                        onBlur={onBlur1}
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
                                             margin: '4px',
                                             marginBottom: '30px',
+                                            shrink: true,
                                         }}
                                         name="reqEndDate"
                                         label="  Request End Date"
-                                        type="text"
+                                        type={
+                                            hasValue1 || focus1 ? 'date' : 'text'
+                                        }
                                         fullWidth
                                         onChange={handleChange}
                                         required
