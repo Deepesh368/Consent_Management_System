@@ -1,5 +1,5 @@
 import { Grid, Button, Toolbar, TextField, Paper } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './navbar.js';
 import { useNavigate } from 'react-router-dom';
 import './styles.css';
@@ -33,6 +33,10 @@ const EditConsent = () => {
         navigate('/patient/consents');
     };
 
+    useEffect(() => {
+        console.log(updateData);
+    }, []);
+
     const paperStyle = {
         padding: 40,
         height: '45%',
@@ -49,7 +53,6 @@ const EditConsent = () => {
     return (
         <div>
             <Header />
-            <Toolbar />
             <div style={{}}>
                 <Grid
                     style={{ margin: '80px 0 20px  0' }}

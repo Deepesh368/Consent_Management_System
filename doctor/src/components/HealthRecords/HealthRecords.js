@@ -13,14 +13,23 @@ const HealthRecords = () => {
 
     const { isLoading, record } = useSelector((state) => state.healthRecord);
 
+    useEffect(() => {
+        console.log(record);
+    }, []);
+
     if (!user) {
         return <Navigate to="/login" />;
+    }
+
+    if (!record.length) {
+        return <h1>No Health Records Found</h1>;
     }
 
     return (
         <div>
             <Header />
             <Toolbar />
+            {/* <h1>Health Record Page</h1> */}
             <Grid
                 style={{ marginTop: '2%' }}
                 container
