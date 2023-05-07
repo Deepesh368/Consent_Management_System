@@ -6,6 +6,7 @@ import { CardContent, CardHeader, Typography, Button } from '@material-ui/core';
 import Paper from '@mui/material/Paper';
 import { SET_UPDATE_CONSENT } from '../../constants/actionTypes';
 import { useDispatch } from 'react-redux';
+import { updateConsent } from '../../actions/consent';
 
 const updateData = {
     consentId: '',
@@ -24,12 +25,22 @@ const Consent = (props) => {
         navigate(`/patient/consents/${props.requestId}`);
     };
 
+    const revokeConsent = async () => {
+        await dispatch(updateConsent(props.requestId, revokeData));
+        window.location.reload(false);
+    };
+
     const [updateData, setUpdateData] = useState({
         consentId: props.requestId,
         status: props.status,
         startDate: props.reqStartDate,
         endDate: props.reqEndDate,
         validity: props.reqValidity,
+    });
+
+    const [revokeData, setRevokeData] = useState({
+        consentId: props.requestId,
+        status: 'reject',
     });
 
     // useEffect(() => {
@@ -122,6 +133,13 @@ const Consent = (props) => {
                             </Typography>
                         </CardContent>
                     </Card>
+                    <Button
+                        // style={{ maxWidth: '100%', textAlign: 'left' }}
+                        style={{ backgroundColor: '#f5f242' }}
+                        onClick={revokeConsent}
+                    >
+                        Revoke Consent
+                    </Button>
                     <Button
                         // style={{ maxWidth: '100%', textAlign: 'left' }}
                         style={{ backgroundColor: '#f5f242' }}

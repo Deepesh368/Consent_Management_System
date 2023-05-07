@@ -13,7 +13,7 @@ const DoctorDashBoard = () => {
     const btnstyle = {
         '&:hover': { background: '#FF000' },
         backgroundColor: '#20CD51',
-        left: '30%',
+        left: '25%',
         margin: '25px',
         width: '250px',
         height: '250px',

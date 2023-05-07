@@ -21,12 +21,16 @@ const EditConsent = () => {
     const updateData = useSelector((state) => state.consent.consentToUpdate);
 
     const [formData, setFormData] = useState(updateData);
+    
+    // useEffect(() => {
+    //     console.log(updateData);
+    // }, []);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-        if (e.target.name === 'reqStartDate') {
+        if (e.target.name === 'startDate') {
             setstartdate(e.target.value);
-        } else if (e.target.name === 'reqEndDate') {
+        } else if (e.target.name === 'endDate') {
             setenddate(e.target.value);
         } else if (e.target.name === 'validity') {
             setvalidity(e.target.value);
@@ -116,7 +120,7 @@ const EditConsent = () => {
                                             margin: '4px',
                                             marginBottom: '30px',
                                         }}
-                                        name="reqStartDate"
+                                        name="startDate"
                                         label="   Request Start Date"
                                         type={
                                             hasValue || focus ? 'date' : 'text'
@@ -136,7 +140,7 @@ const EditConsent = () => {
                                             margin: '4px',
                                             marginBottom: '30px',
                                         }}
-                                        name="reqEndDate"
+                                        name="endDate"
                                         label="   Request End Date"
                                         type={
                                             hasValue1 || focus1

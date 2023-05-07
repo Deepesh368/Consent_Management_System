@@ -7,6 +7,7 @@ import { createHealthRecord } from '../../actions/healthRecord.js';
 import DropdownTextField from './TextBox.js';
 import SeverityBox from './SeverityBox.js';
 import FileUploadForm from './UploadFile.js';
+import MenuItem from '@mui/material/MenuItem';
 
 const initialState = {
     patientId: '',
@@ -27,14 +28,20 @@ const HealthRecordCreate = () => {
     const [formData, setFormData] = useState(initialState);
 
     const handleChange = (e) => {
+
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
+        console.log(formData)
         e.preventDefault();
         // console.log(formData);
         dispatch(createHealthRecord(formData, navigate));
     };
+    const [focus, setFocused] = useState(false);
+    const [hasValue, setHasValue] = useState(false);
+    const onFocus = () => setFocused(true);
+    const onBlur = () => setFocused(false);
 
     const paperStyle = {
         padding: 40,
@@ -78,14 +85,11 @@ const HealthRecordCreate = () => {
                                             Create Health Record
                                         </h2>
                                     </Grid>
-
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
                                         }}
                                         name="patientId"
@@ -95,56 +99,62 @@ const HealthRecordCreate = () => {
                                         required
                                         onChange={handleChange}
                                     />
-                                    <label style={{ color: 'white' }}>
-                                        Date of Visit:
-                                    </label>
                                     <TextField
+                                        onFocus={onFocus}
+                                        onBlur={onBlur}
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
-                                            '& .MuiPickersCalendar-weekDayLabel':
-                                                {
-                                                    color: 'white',
-                                                },
                                         }}
                                         name="dateOfVisit"
-                                        label=""
+                                        label="Date of Visit"
                                         placeholder=""
-                                        type="date"
+                                        type={
+                                            hasValue || focus ? 'date' : 'text'
+                                        }
                                         fullWidth
                                         required
                                         onChange={handleChange}
+                                        variant="outlined"
                                     />
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
                                         }}
+                                        select
                                         name="recordType"
                                         label="   Record Type"
                                         type="text"
                                         fullWidth
                                         required
                                         onChange={handleChange}
-                                    />
-
+                                    >
+                                        <MenuItem value="">None</MenuItem>
+                                        <MenuItem value="Diagnostic">
+                                            Diagnostic
+                                        </MenuItem>
+                                        <MenuItem value="Prescription">
+                                            Prescription
+                                        </MenuItem>
+                                        <MenuItem value="Lab Report">
+                                            Lab Report
+                                        </MenuItem>
+                                    </TextField>
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
+                                            height:"300px",
+                                            wordWrap:"true"
                                         }}
+                                        
                                         name="reportDetails"
                                         label="   Report Details"
                                         type="text"
@@ -152,7 +162,6 @@ const HealthRecordCreate = () => {
                                         required
                                         onChange={handleChange}
                                     />
-
                                     {/* <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
@@ -189,18 +198,23 @@ const HealthRecordCreate = () => {
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
-                                            borderRadius: 50,
                                             margin: '4px',
-                                            height: '40px',
                                             marginBottom: '30px',
                                         }}
+                                        select
                                         name="severity"
                                         label="   Severity"
                                         type="text"
                                         fullWidth
                                         required
                                         onChange={handleChange}
-                                    />
+                                    >
+                                        <MenuItem value="">None</MenuItem>
+                                        <MenuItem value={'0'}>0</MenuItem>
+                                        <MenuItem value={'1'}>1</MenuItem>
+                                        <MenuItem value={'2'}>2</MenuItem>
+                                        <MenuItem value="3">3</MenuItem>
+                                    </TextField>
                                 </Paper>
                             </Grid>
                             <Button

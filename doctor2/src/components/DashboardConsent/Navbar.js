@@ -1,17 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import MedicalServicesIcon from '@mui/icons-material/MedicalServices';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { LOGOUT } from '../../constants/actionTypes';
+import decode from 'jwt-decode';
 
 const Header = () => {
     let ABHA_NUM = 123455959;
     let name = window.location.href.split('/')[3];
     let navigate = useNavigate();
     const dispatch = useDispatch();
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('doctor'))
+    );
+    const [docname, setName] = useState('NULL');
 
+    useEffect(() => {
+        const token = user?.token;
+        if (token) {
+            const decodedToken = decode(token);
+            setName(decodedToken?.name);
+        }
+    }, []);
     const logout = () => {
         navigate('/');
         dispatch({ type: LOGOUT });
@@ -45,7 +57,7 @@ const Header = () => {
                         marginLeft="auto"
                         sx={{ fontWeight: 'bold', fontSize: 16 }}
                     >
-                        Doctor Name
+                        {docname}
                     </Typography>
 
                     <Button

@@ -46,9 +46,7 @@ const ConsentDashBoard = () => {
                         doctorId={consent.doctorId}
                         patientId={consent.patientId}
                         requestingHospitalId={consent.requestingHospitalId}
-                        sendingHospitalId={consent.sendingHospitalId}
                         status={consent.status}
-                        dateofRequest={consent.dateofRequest}
                         reqStartDate={consent.reqStartDate}
                         reqEndDate={consent.reqEndDate}
                         reqValidity={consent.reqValidity}

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:9005' });
+const API = axios.create({ baseURL: 'http://localhost:9006' });
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('doctor')) {

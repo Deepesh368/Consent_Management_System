@@ -5,6 +5,10 @@ import { useNavigate, Navigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createConsent } from '../../actions/consent.js';
 import decode from 'jwt-decode';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import Select from '@mui/material/Select';
+import DoctorDashBoard from '../Dashboard/Dashboard.js';
 
 const initialState = {
     doctorId: '',
@@ -17,6 +21,7 @@ const initialState = {
     status: '',
     consentValidity: '',
     record_type: '',
+    severity: '',
 };
 
 const ConsentCreate = () => {
@@ -46,11 +51,22 @@ const ConsentCreate = () => {
     const [hasValue, setHasValue] = useState(false);
     const onFocus = () => setFocused(true);
     const onBlur = () => setFocused(false);
+    const [age, setAge] = React.useState('');
+
+    const handleAgeChange = (e) => {
+        setAge(e.target.value);
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
     const [focus1, setFocused1] = useState(false);
     const [hasValue1, setHasValue1] = useState(false);
     const onFocus1 = () => setFocused1(true);
     const onBlur1 = () => setFocused1(false);
+
+    const [focus2, setFocused2] = useState(false);
+    const [hasValue2, setHasValue2] = useState(false);
+    const onFocus2 = () => setFocused2(true);
+    const onBlur2 = () => setFocused2(false);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -59,6 +75,7 @@ const ConsentCreate = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(createConsent(formData, navigate));
+        <Navigate to="/DoctorDashBoard" />;
     };
 
     const paperStyle = {
@@ -177,7 +194,7 @@ const ConsentCreate = () => {
                                         required
                                         variant="outlined"
                                     />
-                                    <TextField
+                                    {/* <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
@@ -191,8 +208,30 @@ const ConsentCreate = () => {
                                         onChange={handleChange}
                                         required
                                         variant="outlined"
-                                    />
+                                    /> */}
                                     <TextField
+                                        onFocus={onFocus2}
+                                        onBlur={onBlur2}
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            margin: '4px',
+                                            marginBottom: '30px',
+                                            shrink: true,
+                                        }}
+                                        name="reqValidity"
+                                        label="  Request Validity"
+                                        type={
+                                            hasValue2 || focus2
+                                                ? 'date'
+                                                : 'text'
+                                        }
+                                        fullWidth
+                                        onChange={handleChange}
+                                        required
+                                        variant="outlined"
+                                    />
+                                    {/* <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
@@ -206,14 +245,15 @@ const ConsentCreate = () => {
                                         onChange={handleChange}
                                         required
                                         variant="outlined"
-                                    />
+                                    /> */}
                                     <TextField
                                         InputProps={{ disableUnderline: true }}
                                         style={{
                                             background: 'white',
                                             margin: '4px',
-                                            marginBottom: '1px',
+                                            marginBottom: '30px',
                                         }}
+                                        select
                                         name="record_type"
                                         label="   Record Type"
                                         type="text"
@@ -221,7 +261,41 @@ const ConsentCreate = () => {
                                         onChange={handleChange}
                                         required
                                         variant="outlined"
-                                    />
+                                    >
+                                        <MenuItem value="">None</MenuItem>
+                                        <MenuItem value="Diagnostic">
+                                            Diagnostic
+                                        </MenuItem>
+                                        <MenuItem value="Prescription">
+                                            Prescription
+                                        </MenuItem>
+                                        <MenuItem value="Lab Report">
+                                            Lab Report
+                                        </MenuItem>
+                                    </TextField>
+                                    <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            margin: '4px',
+                                            marginBottom: '1px',
+                                        }}
+                                        select
+                                        name="severity"
+                                        label="   Severity"
+                                        type="text"
+                                        fullWidth
+                                        onChange={handleChange}
+                                        required
+                                        variant="outlined"
+                                    >
+                                        <MenuItem value="">None</MenuItem>
+                                        <MenuItem value={'0'}>0</MenuItem>
+                                        <MenuItem value={'1'}>1</MenuItem>
+                                        <MenuItem value={'2'}>2</MenuItem>
+                                        <MenuItem value="3">3</MenuItem>
+                                       
+                                    </TextField>
                                 </Paper>
                             </Grid>
                             <Button

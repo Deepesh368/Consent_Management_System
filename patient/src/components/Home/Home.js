@@ -7,10 +7,8 @@ const Home = () => {
         <div>
             <Navbar />
             <Toolbar />
-            <h1>
-                This is the place where website information and goals will be
-                displayed
-            </h1>
+            <h1>Welcome citizens!</h1>
+            Here you can control who can see you health records.
         </div>
     );
 };

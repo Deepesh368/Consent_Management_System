@@ -93,7 +93,15 @@ const HealthRecords = () => {
                     <HealthRecord
                         id={record.id}
                         patientId={record.patientId}
-                        dateOfVisit={record.dateOfVisit}
+                        dateOfVisit={
+                            record.dateOfVisit
+                                ? record.dateOfVisit
+                                      .slice(0, 10)
+                                      .split('-')
+                                      .reverse()
+                                      .join('-')
+                                : record.dateOfVisit
+                        }
                         recordType={record.recordType}
                         reportDetails={record.reportDetails}
                         severity={record.severity}
