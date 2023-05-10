@@ -13,7 +13,7 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const logout = () => {
-        navigate('/');
+        navigate('/login');
         dispatch({ type: LOGOUT });
     }
     

@@ -49,6 +49,7 @@ const HealthRecords = () => {
     return (
         <div>
             <Header />{' '}
+            
             <Grid style={{ margin: '10% 0 5% 0' }}>
                 <form onSubmit={handleSubmit}>
                     <TextField

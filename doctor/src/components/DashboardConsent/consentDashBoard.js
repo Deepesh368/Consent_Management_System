@@ -1,4 +1,4 @@
-import { Toolbar, Grid } from '@material-ui/core';
+import { Toolbar, Grid, TextField, MenuItem} from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
@@ -23,6 +23,14 @@ const ConsentDashBoard = () => {
     }, []);
 
     const { isLoading, consents } = useSelector((state) => state.consent);
+    const [recordsFilter, setRecords] = useState(consents);
+    const handleChange = (e) => {
+        if(e.target.value==="All"){
+            
+        }
+    };
+
+
 
     if (!user) {
         return <Navigate to="/login" />;

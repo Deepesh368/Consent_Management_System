@@ -109,7 +109,7 @@ const ConsentCreate = () => {
                     <div>
                         <Header />
                         <form onSubmit={handleSubmit}>
-                            <Grid style={{ margin: '70px 0 50px  0' }}>
+                            <Grid style={{ margin: '70px 0 20  0' }}>
                                 <Paper elevation={10} style={paperStyle}>
                                     <h2
                                         style={{
@@ -262,7 +262,7 @@ const ConsentCreate = () => {
                                         required
                                         variant="outlined"
                                     >
-                                        <MenuItem value="">None</MenuItem>
+                                        <MenuItem value="all">All</MenuItem>
                                         <MenuItem value="Diagnostic">
                                             Diagnostic
                                         </MenuItem>
@@ -271,6 +271,30 @@ const ConsentCreate = () => {
                                         </MenuItem>
                                         <MenuItem value="Lab Report">
                                             Lab Report
+                                        </MenuItem>
+                                    </TextField>
+                                    <TextField
+                                        InputProps={{ disableUnderline: true }}
+                                        style={{
+                                            background: 'white',
+                                            margin: '4px',
+                                            marginBottom: '30px',
+                                        }}
+                                        select
+                                        name="status"
+                                        label="   Status"
+                                        type="text"
+                                        fullWidth
+                                        onChange={handleChange}
+                                        // required
+                                        variant="outlined"
+                                    >
+                                        {/* <MenuItem value="">None</MenuItem> */}
+                                        <MenuItem value={'Pending'}>
+                                            Pending
+                                        </MenuItem>
+                                        <MenuItem value={'Emergency'}>
+                                            Emergency
                                         </MenuItem>
                                     </TextField>
                                     <TextField
@@ -289,12 +313,11 @@ const ConsentCreate = () => {
                                         required
                                         variant="outlined"
                                     >
-                                        <MenuItem value="">None</MenuItem>
-                                        <MenuItem value={'0'}>0</MenuItem>
-                                        <MenuItem value={'1'}>1</MenuItem>
-                                        <MenuItem value={'2'}>2</MenuItem>
-                                        <MenuItem value="3">3</MenuItem>
-                                       
+                                        <MenuItem value={'0'}>All</MenuItem>
+                                        <MenuItem value={'3'}>Fatal</MenuItem>
+                                        <MenuItem value={'2'}>High</MenuItem>
+                                        <MenuItem value={'1'}>Medium</MenuItem>
+                                        <MenuItem value={'0'}>Low</MenuItem>
                                     </TextField>
                                 </Paper>
                             </Grid>

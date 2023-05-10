@@ -22,7 +22,7 @@ const Header = () => {
         }
     }, []);
     const logout = () => {
-        navigate('/');
+        navigate('/login');
         dispatch({ type: LOGOUT });
     };
 
@@ -54,7 +54,7 @@ const Header = () => {
                         marginLeft={2}
                         sx={{
                             fontWeight: 'bold',
-                            marginLeft: '65%',
+                            marginLeft: '75%',
                             fontSize: 16,
                         }}
                     >

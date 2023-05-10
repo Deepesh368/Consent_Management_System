@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Card from '@mui/material/CardContent';
 import { CardContent, CardHeader, Typography, Button } from '@material-ui/core';
 import Paper from '@mui/material/Paper';
@@ -17,7 +17,7 @@ const HealthRecord = (props) => {
                         <CardContent>
                             <Typography variant="body2" color="text.secondary">
                                 <h3>id: {props.id}</h3>
-                                <h3>patient id: {props.patientId}</h3>
+
                                 <h3>date of Visit: {props.dateOfVisit}</h3>
                                 <h3>record Type: {props.recordType}</h3>
                                 <h3>report Details: {props.reportDetails}</h3>

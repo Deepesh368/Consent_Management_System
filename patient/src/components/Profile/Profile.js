@@ -1,20 +1,39 @@
 import { Toolbar, TextField, Button } from '@material-ui/core';
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 import Header from './Navbar.js';
 import './styles.css';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import decode from 'jwt-decode';
 
 const Profile = () => {
+    
     const user = JSON.parse(localStorage.getItem('patient'));
-    const dispatch = useDispatch();
+    const [name, setName] = useState('NULL');
+     const [password, setPassword] = useState('NULL');
+      const [email, setmail] = useState('NULL');
+       const [number, setNum] = useState(0);
+    useEffect(() => {
+        const token = user?.token;
+        if (token) {
+            const decodedToken = decode(token);
+            console.log(decodedToken);
 
+            setName(decodedToken?.name);
+            setmail(decodedToken?.email)
+            setNum(decodedToken?.exp)
+        }
+        console.log(name)
+        console.log(email)
+    }, []);
     if (!user) {
         return <Navigate to="/login" />;
     }
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
     };
 
     return (
@@ -50,19 +69,7 @@ const Profile = () => {
                     required
                     variant="outlined"
                 />
-                <TextField
-                    InputProps={{ disableUnderline: true }}
-                    style={{
-                        background: 'white',
-                        margin: '1% auto 1% 40%',
-                        width: '20%',
-                    }}
-                    label="   Password"
-                    type="Password"
-                    fullWidth
-                    required
-                    variant="outlined"
-                />
+                
                 <TextField
                     InputProps={{ disableUnderline: true }}
                     style={{

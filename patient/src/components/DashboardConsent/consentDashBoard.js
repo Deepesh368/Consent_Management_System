@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, MenuItem, TextField } from 'react';
 import { Toolbar, Grid } from '@material-ui/core';
 import { Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,6 +16,7 @@ const ConsentDashBoard = () => {
     const [name, setName] = useState('NULL');
     const [abhaId, setAbhaId] = useState('NULL');
     const [toUpdate, setToUpdate] = useState(false);
+    const [recordStatus, setRecordStatus] = useState('All');
 
     useEffect(() => {
         const token = user?.token;
@@ -27,7 +28,11 @@ const ConsentDashBoard = () => {
     }, []);
 
     const { isLoading, consents } = useSelector((state) => state.consent);
-
+    const [recordsFilter, setRecords] = useState(consents);
+    const handleChange = (e) => {
+        if (e.target.value === 'All') {
+        }
+    };
     if (!user) {
         return <Navigate to="/login" />;
     }
@@ -36,6 +41,7 @@ const ConsentDashBoard = () => {
         <div>
             <Header />
             <Toolbar />
+            
             <Grid
                 style={{ marginTop: '2%' }}
                 container
@@ -60,6 +66,7 @@ const ConsentDashBoard = () => {
                         consentValidity={consent.consentValidity}
                     />
                 ))}
+                
             </Grid>
         </div>
     );

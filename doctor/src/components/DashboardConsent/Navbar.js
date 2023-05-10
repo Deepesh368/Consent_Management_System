@@ -25,7 +25,7 @@ const Header = () => {
         }
     }, []);
     const logout = () => {
-        navigate('/');
+        navigate('/login');
         dispatch({ type: LOGOUT });
     };
 

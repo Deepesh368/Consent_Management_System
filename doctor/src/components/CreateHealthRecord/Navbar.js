@@ -25,7 +25,7 @@ const Header = () => {
     }, []);
     const logout = async () => {
         await dispatch({ type: LOGOUT });
-        navigate('/');
+        navigate('/login');
     };
 
     return (
@@ -56,7 +56,7 @@ const Header = () => {
                         marginLeft={2}
                         sx={{
                             fontWeight: 'bold',
-                            marginLeft: '65%',
+                            marginLeft: '75%',
                             fontSize: 16,
                         }}
                     >

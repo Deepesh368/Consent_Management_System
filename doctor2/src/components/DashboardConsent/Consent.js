@@ -23,23 +23,23 @@ const Consent = (props) => {
             <Paper
                 variant="outlined"
                 elevation={3}
-                sx={{ background: 'LightYellow', margin:"4%" }}
+                sx={{ background: 'LightYellow', margin: '4%' }}
             >
                 <Card variant="outlined">
                     <CardHeader title={'Consent Information'} />
                     <CardContent>
                         <Typography variant="body2" color="text.secondary">
-                            <h3>requestId: {props.requestId}</h3>
-                            <h3>doctorId={props.doctorId}</h3>
-                            <h3>patientId={props.patientId}</h3>
-                            <h3>
-                                requestingHospitalId=
+                            <h3>request Id: {props.requestId}</h3>
+                            {/* <h3>doctorId={props.doctorId}</h3> */}
+                            <h3>patient Id: {props.patientId}</h3>
+                            {/* <h3>
+                                requesting Hospital Id=
                                 {props.requestingHospitalId}
-                            </h3>
-                            <h3>status={props.status}</h3>
-                            
+                            </h3> */}
+                            <h3>status: {props.status}</h3>
+
                             <h3>
-                                reqStartDate=
+                                request Start Date:{' '}
                                 {props.reqStartDate
                                     ? props.reqStartDate
                                           .slice(0, 10)
@@ -49,7 +49,7 @@ const Consent = (props) => {
                                     : props.reqStartDate}
                             </h3>
                             <h3>
-                                reqEndDate=
+                                request End Date:{' '}
                                 {props.reqEndDate
                                     ? props.reqEndDate
                                           .slice(0, 10)
@@ -59,7 +59,7 @@ const Consent = (props) => {
                                     : props.reqEndDate}
                             </h3>
                             <h3>
-                                reqValidity=
+                                request Validity:{' '}
                                 {props.reqValidity
                                     ? props.reqValidity
                                           .slice(0, 10)
@@ -69,40 +69,40 @@ const Consent = (props) => {
                                     : props.reqValidity}
                             </h3>
                             <h3>
-                                consentStartDate=
+                                consent Start Date:{' '}
                                 {props.consentStartDate
                                     ? props.consentStartDate
                                           .slice(0, 10)
                                           .split('-')
                                           .reverse()
                                           .join('-')
-                                    : props.consentStartDate}
+                                    : 'Pending'}
                             </h3>
                             <h3>
-                                consentEndDate=
+                                consent End Date:{' '}
                                 {props.consentEndDate
                                     ? props.consentEndDate
                                           .slice(0, 10)
                                           .split('-')
                                           .reverse()
                                           .join('-')
-                                    : props.consentEndDate}
+                                    : 'Pending'}
                             </h3>
                             <h3>
-                                consentValidity=
+                                consent Validity:{' '}
                                 {props.consentValidity
                                     ? props.consentValidity
                                           .slice(0, 10)
                                           .split('-')
                                           .reverse()
                                           .join('-')
-                                    : props.consentValidity}
+                                    : 'Pending'}
                             </h3>
                         </Typography>
                     </CardContent>
                 </Card>
                 <Button
-                    style={{ background:"yellow" }}
+                    style={{ background: 'yellow' }}
                     onClick={goToHealthRecord}
                 >
                     View Health Record for this consent

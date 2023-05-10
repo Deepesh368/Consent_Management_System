@@ -64,8 +64,8 @@ const Header = () => {
                         onClick={() => navigate('/patient/records')}
                         sx={{
                             '&:hover': { backgroundColor: '#D3D3D3' },
-                            width: '12%',
-                            marginLeft: '58%',
+                            width: '15%',
+                            marginLeft: '50%',
                             borderRadius: '20px',
                             background: 'white',
                             color: 'black',

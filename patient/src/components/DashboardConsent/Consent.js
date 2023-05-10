@@ -58,7 +58,7 @@ const Consent = (props) => {
                     <Card variant="outlined">
                         <CardHeader title={'Consent Information'} />
                         <CardContent>
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography variant="body4" color="text.secondary">
                                 {/* <h3>requestId: {props.requestId}</h3> */}
                                 <h3>Doctor ID: {props.doctorId}</h3>
                                 {/* <h3>patientId: {props.patientId}</h3> */}
@@ -108,7 +108,7 @@ const Consent = (props) => {
                                               .split('-')
                                               .reverse()
                                               .join('-')
-                                        : 'PENDING'}
+                                        : 'Pending'}
                                 </h3>
                                 <h3>
                                     consented End Date:{' '}
@@ -118,7 +118,7 @@ const Consent = (props) => {
                                               .split('-')
                                               .reverse()
                                               .join('-')
-                                        : 'PENDING'}
+                                        : 'Pending'}
                                 </h3>
                                 <h3>
                                     consent Valid till:{' '}
@@ -128,21 +128,21 @@ const Consent = (props) => {
                                               .split('-')
                                               .reverse()
                                               .join('-')
-                                        : 'PENDING'}
+                                        : 'Pending'}
                                 </h3>
                             </Typography>
                         </CardContent>
                     </Card>
                     <Button
                         // style={{ maxWidth: '100%', textAlign: 'left' }}
-                        style={{ backgroundColor: '#f5f242' }}
+                        style={{ backgroundColor: '#f5f242', margin: '1%' }}
                         onClick={revokeConsent}
                     >
                         Revoke Consent
                     </Button>
                     <Button
                         // style={{ maxWidth: '100%', textAlign: 'left' }}
-                        style={{ backgroundColor: '#f5f242' }}
+                        style={{ backgroundColor: '#f5f242', marginL: '1%' }}
                         onClick={goToUpdateForm}
                     >
                         Update Consent

@@ -28,12 +28,11 @@ const HealthRecordCreate = () => {
     const [formData, setFormData] = useState(initialState);
 
     const handleChange = (e) => {
-
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
-        console.log(formData)
+        console.log(formData);
         e.preventDefault();
         // console.log(formData);
         dispatch(createHealthRecord(formData, navigate));
@@ -151,10 +150,9 @@ const HealthRecordCreate = () => {
                                             background: 'white',
                                             margin: '4px',
                                             marginBottom: '30px',
-                                            height:"300px",
-                                            wordWrap:"true"
+                                            height: '300px',
+                                            wordWrap: 'true',
                                         }}
-                                        
                                         name="reportDetails"
                                         label="   Report Details"
                                         type="text"
@@ -209,11 +207,11 @@ const HealthRecordCreate = () => {
                                         required
                                         onChange={handleChange}
                                     >
-                                        <MenuItem value="">None</MenuItem>
-                                        <MenuItem value={'0'}>0</MenuItem>
-                                        <MenuItem value={'1'}>1</MenuItem>
-                                        <MenuItem value={'2'}>2</MenuItem>
-                                        <MenuItem value="3">3</MenuItem>
+                                        <MenuItem value={'0'}>All</MenuItem>
+                                        <MenuItem value={'3'}>Fatal</MenuItem>
+                                        <MenuItem value={'2'}>High</MenuItem>
+                                        <MenuItem value={'1'}>Medium</MenuItem>
+                                        <MenuItem value={'0'}>Low</MenuItem>
                                     </TextField>
                                 </Paper>
                             </Grid>

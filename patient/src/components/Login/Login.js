@@ -113,7 +113,7 @@ const Login = () => {
                             style={{
                                 color: 'white',
                                 marginBottom:'145px',
-                                marginLeft:"80%",
+                                marginLeft:"75%",
                                 fontWeight: 'bold',
                             }}
                         >
